@@ -1,0 +1,12 @@
+symfony_si_main_homepage:
+    pattern:  /
+    defaults: { _controller: SymfonySiMainBundle:Default:index }
+
+symfony_si_main_club:
+    pattern:  /symfony-slovenia-sensiolabs-connect-club
+    defaults: { _controller: SymfonySiMainBundle:Default:club }
+
+symfony_si_main_irc:
+    pattern:  /symfony-irc-channel
+    defaults: { _controller: SymfonySiMainBundle:Default:irc }
+
