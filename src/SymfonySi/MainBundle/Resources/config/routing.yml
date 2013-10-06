@@ -1,12 +1,30 @@
 symfony_si_main_homepage:
-    pattern:  /
-    defaults: { _controller: SymfonySiMainBundle:Default:index }
+    pattern:  /{_locale}
+    defaults: { _controller: SymfonySiMainBundle:Default:index, _locale: sl }
+    requirements:
+        _locale: sl|en
+
+symfony_si_main_copyright:
+    pattern: /{_locale}/copyrights
+    defaults: { _controller: SymfonySiMainBundle:Default:copyright, _locale: sl }
+    requirements:
+        _locale: sl|en
+
+symfony_si_main_join:
+    pattern: /{_locale}/join-in
+    defaults: { _controller: SymfonySiMainBundle:Default:join, _locale: sl }
+    requirements:
+        _locale: sl|en
 
 symfony_si_main_club:
-    pattern:  /symfony-slovenia-sensiolabs-connect-club
-    defaults: { _controller: SymfonySiMainBundle:Default:club }
+    pattern:  /{_locale}/symfony-slovenia-sensiolabs-connect-club
+    defaults: { _controller: SymfonySiMainBundle:Default:club, _locale: sl }
+    requirements:
+        _locale: sl|en
 
 symfony_si_main_irc:
-    pattern:  /symfony-irc-channel
-    defaults: { _controller: SymfonySiMainBundle:Default:irc }
+    pattern:  /{_locale}/symfony-si-irc-channel
+    defaults: { _controller: SymfonySiMainBundle:Default:irc, _locale: sl }
+    requirements:
+        _locale: sl|en
 

@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Copyright{% endblock %}
+
+{% block body %}
+    {% if app.request.locale == 'en' %}
+        <h1>Copyrights</h1>
+
+        Symfony is a registered trademark of Fabien Potencier.
+
+        Symfony.si website provides only information for local Symfony usergroup in Slovenia. Go to official symfony.com website for more information.
+    {% else %}
+        <h1>Avtorske pravice</h1>
+        Symfony je registrirana blagovna znamka Fabien Potencier-a.
+
+        Symfony.si spletna stran ponuja informacije za lokalno Symfony uporabniško skupino v Sloveniji. Pojdite na uradno symfony.com stran za več informacij.
+    {% endif %}
+{% endblock %}
+
+

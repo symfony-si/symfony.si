@@ -1,7 +1,11 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    Welcome to Symfony.si.
+    {% if app.request.locale == 'en' %}
+        <h1>Welcome to Symfony.si.</h1>
+    {% else %}
+        <h1>Dobrodošli na Symfony.si</h1>
+    {% endif %}
 {% endblock %}
 
 

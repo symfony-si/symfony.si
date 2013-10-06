@@ -1,0 +1,6 @@
+symfony_si_blog_homepage:
+    pattern:  /blog/{_locale}
+    defaults: { _controller: SymfonySiBlogBundle:Default:index, _locale: sl }
+    requirements:
+        _locale: sl|en
+

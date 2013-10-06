@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{% trans %}Join in{% endtrans %}{% endblock%}
+
+{% block body %}
+	{% if app.request.locale == 'en' %}
+        <h1>Join in</h1>
+
+        <p>Symfony.si is also Slovenian Symfony user group and community. If you are a PHP developer, Symfony user or just exploring Symfony framework consider joining our community as well.</p>
+
+        <h2>SensioLabs Connect Slovenia Club</h2>
+
+        <p>SensioLabs Connect is a developer social network. Join the community, create your developer profile and start earning achievements for community.</p>
+
+        <p>Join our Symfony Slovenia club for connecting Slovenian Symfony and PHP users and developers:</p>
+
+	    <a class="btn btn-lg btn-success" href="https://connect.sensiolabs.com/club/slovenia">Join us</a>
+	{% else %}
+		<h1>Pridužite se</h1>
+        
+        <p>Symfony.si je tudi slovenska Symfony uporabniška skupina in skupnost. Če ste PHP razvijalec, Symfony uporabnik ali samo raziskujete Symfony ogrodje, premislite tudi o pridružitvi naši skupnosti.</p>
+
+		<h2>SensioLabs Connect Slovenia Club</h2>
+
+		<p>SensioLabs Connect je razvijalsko socialno omrežje. Pridružite se skupnosti, ustvarite vaš razvijalski profil in pričnite služiti dosežke za skupnost.</p>
+
+		<p>Pridružite se našemu Symfony Slovenia klubu za povezovanje slovenskih Symfony in PHP uporabnikov in razvijalcev:</p>
+
+		<a class="btn btn-lg btn-success" href="https://connect.sensiolabs.com/club/slovenia">Pridružite se</a>
+	{% endif %}
+
+{% endblock %}

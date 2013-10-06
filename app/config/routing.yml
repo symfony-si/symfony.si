@@ -1,3 +1,7 @@
+symfony_si_blog:
+    resource: "@SymfonySiBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
 symfony_si_main:
     resource: "@SymfonySiMainBundle/Resources/config/routing.yml"
     prefix:   /
