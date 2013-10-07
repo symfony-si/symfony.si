@@ -40,7 +40,7 @@
                         <li class="active"><a href="{{ path('symfony_si_main_homepage', {'_locale': app.request.locale}) }}">{% trans %}Home{% endtrans %}</a></li>
                         <li><a href="{{ path('symfony_si_main_join', {'_locale': app.request.locale}) }}">{% trans %}Join in{% endtrans %}</a></li>
                         {#<li><a href="{{ path('symfony_si_blog_homepage', {'_locale': app.request.locale}) }}">Blog</a></li>#}
-                        {#<li><a href="{{ path('symfony_si_main_docs', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a></li>#}
+                        <li><a href="{{ path('symfony_si_main_docs', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{% if app.request.locale == 'sl' %} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'sl'}) }}">Slovenian</a></li>
