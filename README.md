@@ -1,5 +1,7 @@
 # Symfony.si
 
+[![Build Status](https://secure.travis-ci.org/paradoxcode/symfony.si.png?branch=master)](http://travis-ci.org/paradoxcode/symfony.si)
+
 ## About
 
 Welcome to the Symfony Slovenia project. You probably wonder why is this project located in a separate
