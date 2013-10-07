@@ -29,6 +29,9 @@ cd symfony.si
 curl -s https://getcomposer.org/installer |php
 php composer.phar install
 php app/console assets:install
+php app/console doctrine:database:create
+php app/console doctrine:schema:update
+php app/console doctrine:fixtures:load
 ```
 
 ## License

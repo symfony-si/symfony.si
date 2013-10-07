@@ -5,4 +5,9 @@
 {% block body %}
     <h1>Symfony.si blog</h1>
 
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+
+        <p>{{ post.intro }} <a href="{{ path('symfony_si_blog_show', {'slug': post.slug}) }}">&gt;&gt;</a></p>
+    {% endfor %}
 {% endblock %}

@@ -8,6 +8,33 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SymfonySiBlogBundle:Default:index.html.twig');
+        $posts = $this->getDoctrine()
+            ->getRepository('SymfonySiBlogBundle:Post')
+            ->findAll();
+         
+        return $this->render(
+            'SymfonySiBlogBundle:Default:index.html.twig',
+            array('posts' => $posts)
+        );
+    }
+
+    public function showAction($slug)
+    {
+        $post = $this->getDoctrine()
+            ->getRepository('SymfonySiBlogBundle:Post')
+            ->findOneBySlug($slug);
+
+        if (!$post) {
+            throw $this->createNotFoundException(
+                'No post found for slug '.$slug
+            );
+        }
+
+        return $this->render(
+            'SymfonySiBlogBundle:Default:show.html.twig',
+            array('post' => $post)
+        );
+
+        // ... do something, like pass the $post object into a template
     }
 }

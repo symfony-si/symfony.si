@@ -4,3 +4,9 @@ symfony_si_blog_homepage:
     requirements:
         _locale: sl|en
 
+symfony_si_blog_show:
+    pattern: /blog/{_locale}/{slug}
+    defaults: { _controller: SymfonySiBlogBundle:Default:show, _locale: sl }
+    requirements:
+        _locale: sl|en
+
