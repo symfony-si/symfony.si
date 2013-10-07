@@ -2,13 +2,15 @@
 
 namespace SymfonySi\BlogBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Translatable\Translatable;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="post")
  */
-class Post
+class Post implements Translatable
 {
     /**
      * @ORM\Column(type="integer")
@@ -18,25 +20,36 @@ class Post
     protected $id;
 
     /**
+     * @Gedmo\Translatable
      * @ORM\Column(type="string", length=100)
      */
     private $title;
 
     
     /**
+     * @Gedmo\Translatable
      * @ORM\Column(type="text")
      */
     private $intro;
 
     /**
+     * @Gedmo\Translatable
      * @ORM\Column(type="text")
      */
     private $content;
 
     /**
+     * @Gedmo\Translatable
      * @ORM\Column(type="string", length=100)
      */
     private $slug;
+
+    /**
+     * @Gedmo\Locale
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+    */
+    private $locale;
 
     /**
      * Get id
@@ -141,11 +154,13 @@ class Post
     }
 
     /**
-      * @ORM\PrePersist
-      */
+     * @ORM\PrePersist
+     */
     public function setCreatedAtValue()
     {
-            $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTime();
+
+        return $this;
     }
 
     /**
@@ -158,6 +173,15 @@ class Post
         return $this->slug;
     }
 
+    /**
+     * Set locale
+     *
+     * @return Post
+     */
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
 
-
+        return $this;
+    }
 }

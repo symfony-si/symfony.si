@@ -23,6 +23,7 @@ class DefaultController extends Controller
         $post = $this->getDoctrine()
             ->getRepository('SymfonySiBlogBundle:Post')
             ->findOneBySlug($slug);
+        $post->setTranslatableLocale($this->getRequest()->getLocale());
 
         if (!$post) {
             throw $this->createNotFoundException(
@@ -35,6 +36,5 @@ class DefaultController extends Controller
             array('post' => $post)
         );
 
-        // ... do something, like pass the $post object into a template
     }
 }
