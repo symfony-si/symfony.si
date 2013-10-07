@@ -9,11 +9,19 @@
             <trans-unit id="copyrights">
                 <source>Copyrights</source>
                 <target>Copyrights</target>
-			</trans-unit>
-			<trans-unit id="join-in">
-				<source>Join in</source>
-				<target>Join in</target>
-			</trans-unit>
+            </trans-unit>
+            <trans-unit id="join-in">
+                <source>Join in</source>
+                <target>Join in</target>
+            </trans-unit>
+            <trans-unit id="docs">
+                <source>Documentation</source>
+                <target>Documentation</target>
+            </trans-unit>
+            <trans-unit id="contact">
+                <source>Contact us</source>
+                <target>Contact us</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

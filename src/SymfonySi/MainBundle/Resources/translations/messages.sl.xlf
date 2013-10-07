@@ -10,6 +10,26 @@
                 <source>Copyrights</source>
                 <target>Avtorske pravice</target>
             </trans-unit>
+            <trans-unit id="contact">
+                <source>Contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="contact-success">
+                <source>Contact succeeded</source>
+                <target>Kontakt uspešen</target>
+            </trans-unit>
+            <trans-unit id="name">
+                <source>Name</source>
+                <target>Ime</target>
+            </trans-unit>
+            <trans-unit id="email">
+                <source>Email</source>
+                <target>E-pošta</target>
+            </trans-unit>
+            <trans-unit id="message">
+                <source>Message</source>
+                <target>Sporočilo</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

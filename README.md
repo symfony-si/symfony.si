@@ -33,5 +33,5 @@ php app/console assets:install
 
 ## License
 
-Symfony is a trademark of Fabien Potencier. Symfony.si website only promotes Symfony framework and community
+Symfony is a registered trademark of Fabien Potencier. Symfony.si website only promotes Symfony framework and community
 in Slovenia area. Source code of symfony.si application is released under [MIT License](LICENSE).

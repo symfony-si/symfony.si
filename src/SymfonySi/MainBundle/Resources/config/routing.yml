@@ -22,6 +22,24 @@ symfony_si_main_club:
     requirements:
         _locale: sl|en
 
+symfony_si_main_docs:
+    pattern: /{_locale}/documentation
+    defaults: { _controller: SymfonySiMainBundle:Default:docs, _locale: sl }
+    requirements:
+        _locale: sl|en
+
+symfony_si_main_contact:
+    pattern: /{_locale}/contact
+    defaults: { _controller: SymfonySiMainBundle:Default:contact, _locale: sl }
+    requirements:
+        _locale: sl|en
+
+symfony_si_main_contact_success:
+    pattern: /{_locale}/contact-succeeded
+    defaults: { _controller: SymfonySiMainBundle:Default:contactSuccess, _locale: sl }
+    requirements:
+        _locale: sl|en
+
 symfony_si_main_irc:
     pattern:  /{_locale}/symfony-si-irc-channel
     defaults: { _controller: SymfonySiMainBundle:Default:irc, _locale: sl }

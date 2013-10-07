@@ -4,13 +4,15 @@
         <body>
             <trans-unit id="home">
                 <source>copyrights</source>
-		<target>
-
-		</target>
+                <target></target>
             </trans-unit>
             <trans-unit id="copyrights">
                 <source>Copyrights</source>
                 <target>Copyrights</target>
+            </trans-unit>
+            <trans-unit id="contact-success">
+                <source>Contact succeeded</source>
+                <target>Contact succeeded</target>
             </trans-unit>
         </body>
     </file>

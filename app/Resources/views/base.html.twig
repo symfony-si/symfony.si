@@ -39,7 +39,8 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ path('symfony_si_main_homepage', {'_locale': app.request.locale}) }}">{% trans %}Home{% endtrans %}</a></li>
                         <li><a href="{{ path('symfony_si_main_join', {'_locale': app.request.locale}) }}">{% trans %}Join in{% endtrans %}</a></li>
-                        <li><a href="{{ path('symfony_si_blog_homepage', {'_locale': app.request.locale}) }}">Blog</a></li>
+                        {#<li><a href="{{ path('symfony_si_blog_homepage', {'_locale': app.request.locale}) }}">Blog</a></li>#}
+                        {#<li><a href="{{ path('symfony_si_main_docs', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a></li>#}
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{% if app.request.locale == 'sl' %} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'sl'}) }}">Slovenian</a></li>
@@ -51,7 +52,13 @@
 
         <div class="container">
             <div class="starter-template">
-                {% block body %}{% endblock %}
+                <div class="row">
+                <div class="col-md-9">{% block body %}{% endblock %}</div>
+                    <div class="col-md-3">
+                        {% block sidebar %}
+                        {% endblock %}
+                    </div>
+                </div>
             </div>
         </div><!-- /.container -->
 
@@ -60,8 +67,9 @@
                 <p class="text-muted credit">
                 Symfony.si - Symfony Slovenia &nbsp;&nbsp;&nbsp;
                 <a href="{{ path('symfony_si_main_copyright') }}">{% trans %}Copyrights{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <a href="http://github.com/paradoxcode/symfony.si">GitHub</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-                <a href="{{ path('symfony_si_main_club') }}">SensioLabs Connect Club</a>
+                <a href="http://github.com/paradoxcode/symfony.si">GitHub</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href="{{ path('symfony_si_main_club') }}">SensioLabs Connect Club</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href="{{ path('symfony_si_main_contact', {'_locale': app.request.locale}) }}">{% trans %}Contact us{% endtrans %}</a>
                 </p>
             </div>
         </div>

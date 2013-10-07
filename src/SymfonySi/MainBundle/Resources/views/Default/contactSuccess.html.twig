@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{% trans %}Contact data sent successfully{% endtrans %}{% endblock %}
+
+{% block body %}
+
+{% if app.request.locale == 'en' %}
+    <h1>Contact data sent successfully</h1>
+
+    <p>You've successfully sent email to administrators of the symfony.si website.</p>
+
+{% else %}
+    <h1>Kontaktni podatki uspešno poslani</h1>
+
+    <p>Uspešno ste poslali kontaktne podatke administratorjem symfony.si strani.</p>
+
+{% endif %}
+{% endblock %}
+
