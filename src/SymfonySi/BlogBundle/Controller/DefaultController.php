@@ -11,7 +11,7 @@ class DefaultController extends Controller
         $posts = $this->getDoctrine()
             ->getRepository('SymfonySiBlogBundle:Post')
             ->findAll();
-         
+        
         return $this->render(
             'SymfonySiBlogBundle:Default:index.html.twig',
             array('posts' => $posts)
@@ -23,7 +23,7 @@ class DefaultController extends Controller
         $post = $this->getDoctrine()
             ->getRepository('SymfonySiBlogBundle:Post')
             ->findOneBySlug($slug);
-        $post->setTranslatableLocale($this->getRequest()->getLocale());
+        $em = $this->getDoctrine()->getManager();
 
         if (!$post) {
             throw $this->createNotFoundException(

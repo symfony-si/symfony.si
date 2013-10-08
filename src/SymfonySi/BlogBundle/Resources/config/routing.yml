@@ -5,8 +5,11 @@ symfony_si_blog_homepage:
         _locale: sl|en
 
 symfony_si_blog_show:
-    pattern: /{_locale}/blog/{slug}
+    pattern: /{_locale}/blog/{year}/{month}/{day}/{slug}
     defaults: { _controller: SymfonySiBlogBundle:Default:show, _locale: sl }
     requirements:
         _locale: sl|en
+        year: \d+
+        month: \d+
+        day: \d+
 

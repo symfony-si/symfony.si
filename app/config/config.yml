@@ -73,12 +73,12 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
-# stof_doctrine_extensions:
-#    default_locale: sl
-#    orm:
-#        default: ~
-#        other:
-#            translatable: false
+stof_doctrine_extensions:
+    default_locale: sl
+    orm:
+        default:
+            translatable: true
+            timestampable: true
 
 sonata_block:
     default_contexts: [cms]

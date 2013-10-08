@@ -1,5 +1,4 @@
 <?php
-
 namespace SymfonySi\BlogBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -39,10 +38,25 @@ class Post implements Translatable
     private $content;
 
     /**
-     * @Gedmo\Translatable
      * @ORM\Column(type="string", length=100)
      */
     private $slug;
+
+    /**
+     * @var datetime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var datetime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
 
     /**
      * @Gedmo\Locale
@@ -153,24 +167,14 @@ class Post implements Translatable
         return $this->slug;
     }
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedAtValue()
+    public function getCreated()
     {
-        $this->createdAt = new \DateTime();
-
-        return $this;
+        return $this->created;
     }
 
-    /**
-     * Get createdAt
-     *
-     * @return string
-     */
-    public function getCreatedAt()
+    public function getUpdated()
     {
-        return $this->slug;
+        return $this->updated;
     }
 
     /**
