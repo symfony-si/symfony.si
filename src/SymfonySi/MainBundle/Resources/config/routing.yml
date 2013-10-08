@@ -22,12 +22,6 @@ symfony_si_main_club:
     requirements:
         _locale: sl|en
 
-symfony_si_main_docs:
-    pattern: /{_locale}/documentation
-    defaults: { _controller: SymfonySiMainBundle:Default:docs, _locale: sl }
-    requirements:
-        _locale: sl|en
-
 symfony_si_main_contact:
     pattern: /{_locale}/contact
     defaults: { _controller: SymfonySiMainBundle:Default:contact, _locale: sl }

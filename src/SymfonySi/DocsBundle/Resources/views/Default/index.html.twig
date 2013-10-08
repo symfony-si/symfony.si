@@ -1,1 +1,22 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block title %}{% trans %}Documentation{% endtrans %}{% endblock %}
+
+{% block body %}
+
+{% if app.request.locale == 'en' %}
+    <h1>Slovenian Symfony documentation</h1>
+
+    <p>Symfony framework is famous also for having very good documentation. There will be available also slovenian translation of the documentation, where you can join us with translating.</p>
+
+    <a class="btn btn-lg btn-success" href="https://github.com/paradoxcode/symfony-docs-sl">Slovenian documentation</a>
+{% else %}
+
+    <h1>Slovenska Symfony dokumentacija</h1>
+
+    <p>Symfony ogrodje je znano tudi po zelo dobri dokumentaciji. Na voljo bo tudi slovenski prevod dokumentacije, kjer se nam lahko pridružite in pomagate pri prevajanju:</p>
+
+    <a class="btn btn-lg btn-success" href="https://github.com/paradoxcode/symfony-docs-sl">Slovenska dokumentacija</a>
+{% endif %}
+{% endblock %}
+

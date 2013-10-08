@@ -1,3 +1,6 @@
 symfony_si_docs_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SymfonySiDocsBundle:Default:index }
+    pattern:  /{_locale}/documentation
+    defaults: { _controller: SymfonySiDocsBundle:Default:index, _locale: 'sl' }
+    requirements:
+        _locale: sl|en
+    

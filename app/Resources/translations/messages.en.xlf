@@ -10,9 +10,9 @@
                 <source>Copyrights</source>
                 <target>Copyrights</target>
             </trans-unit>
-            <trans-unit id="join-in">
-                <source>Join in</source>
-                <target>Join in</target>
+            <trans-unit id="join-us">
+                <source>Join us</source>
+                <target>Join us</target>
             </trans-unit>
             <trans-unit id="docs">
                 <source>Documentation</source>
@@ -21,6 +21,10 @@
             <trans-unit id="contact">
                 <source>Contact us</source>
                 <target>Contact us</target>
+            </trans-unit>
+            <trans-unit id="official-page">
+                <source>Symfony.com official page</source>
+                <target>Symfony.com official page</target>
             </trans-unit>
         </body>
     </file>

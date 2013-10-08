@@ -1,7 +1,7 @@
 html,
 body {
     height: 100%;
-    padding-top: 50px;
+    padding-top: 25px;
     /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -43,4 +43,10 @@ body {
 
 code {
     font-size: 80%;
+}
+
+.headerImage {
+    background-image: url('../images/header.png');
+    height: 290px;
+    background-repeat: no-repeat;
 }

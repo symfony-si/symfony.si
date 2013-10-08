@@ -28,11 +28,6 @@ class DefaultController extends Controller
         return $this->render('SymfonySiMainBundle:Default:club.html.twig');
     }
 
-    public function docsAction()
-    {
-        return $this->render('SymfonySiMainBundle:Default:docs.html.twig');
-    }
-
     public function contactAction(Request $request)
     {
         $contact = new Contact();

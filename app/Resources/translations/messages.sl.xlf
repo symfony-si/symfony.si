@@ -10,8 +10,8 @@
                 <source>Copyrights</source>
                 <target>Avtorske pravice</target>
             </trans-unit>
-            <trans-unit id="join-in">
-                <source>Join in</source>
+            <trans-unit id="join-us">
+                <source>Join us</source>
                 <target>Pridružite se</target>
             </trans-unit>
             <trans-unit id="docs">
@@ -21,6 +21,10 @@
             <trans-unit id="contact">
                 <source>Contact us</source>
                 <target>Kontaktirajte nas</target>
+            </trans-unit>
+            <trans-unit id="official-page">
+                <source>Symfony.com official page</source>
+                <target>Symfony.com uradna stran</target>
             </trans-unit>
         </body>
     </file>
