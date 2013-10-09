@@ -9,7 +9,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $book = round(0/21 * 100);
-        $bundles = round(0/2 * 100);
+        $bundles = round(2/2 * 100);
         $components = round(0/83 * 100);
         $contributing = round(0/21 * 100);
         $cookbook = round(0/130 * 100);
