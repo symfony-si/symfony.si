@@ -16,7 +16,7 @@ class DefaultController extends Controller
         $quickTour = round(3/5 * 100);
         $reference = round(0/140 * 100) ;
         $others = round(5/5 * 100);
-        $sum = round(5/407 * 100);
+        $sum = round(10/407 * 100);
         return $this->render('SymfonySiDocsBundle:Default:index.html.twig', array(
             'book' => $book . ' %',
             'bundles' => $bundles . ' %',
