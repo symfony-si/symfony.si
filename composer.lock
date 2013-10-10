@@ -1329,12 +1329,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "ce42ee0565687b3e13e8ae4aa3ce012a32676db2"
+                "reference": "37e87c9e7456b3186320639dda48278b717dbd1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/ce42ee0565687b3e13e8ae4aa3ce012a32676db2",
-                "reference": "ce42ee0565687b3e13e8ae4aa3ce012a32676db2",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/37e87c9e7456b3186320639dda48278b717dbd1e",
+                "reference": "37e87c9e7456b3186320639dda48278b717dbd1e",
                 "shasum": ""
             },
             "require": {
@@ -1399,7 +1399,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-10-07 17:30:33"
+            "time": "2013-10-10 08:12:10"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -1958,16 +1958,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.5",
+            "version": "v2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "aa5626cd2a359567c948ebdeeca68d948640302f"
+                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/aa5626cd2a359567c948ebdeeca68d948640302f",
-                "reference": "aa5626cd2a359567c948ebdeeca68d948640302f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/d0597156c4c03ceca039f6b7770a47397ba295f0",
+                "reference": "d0597156c4c03ceca039f6b7770a47397ba295f0",
                 "shasum": ""
             },
             "require": {
@@ -2062,7 +2062,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-09-27 07:31:40"
+            "time": "2013-10-10 13:24:22"
         },
         {
             "name": "twig/extensions",
