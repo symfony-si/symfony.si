@@ -66,7 +66,15 @@
         <h2>Zadnje objave</h2>
         
         <ul>
-            <li>Pozdravljeni na symfony.si</li>
+            {% for post in posts %}
+                <li><a href="{{ path('symfony_si_blog_show', {
+                    '_locale': app.request.locale,
+                    'year': post.created|date("Y"),
+                    'month': post.created|date("m"),
+                    'day': post.created|date("d"),
+                    'slug': post.slug
+                    }) }}">{{ post.title }}</a></li>
+            {% endfor %}
         </ul>
 
         <h2>Zadnji paketi</h2>
