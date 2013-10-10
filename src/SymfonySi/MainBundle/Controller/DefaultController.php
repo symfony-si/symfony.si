@@ -10,7 +10,21 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SymfonySiMainBundle:Default:index.html.twig');
+        $repository = $this->getDoctrine()->getRepository('SymfonySiBlogBundle:Post');
+
+        $q = $repository->createQueryBuilder('p')
+            ->orderBy('p.created', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery();
+            
+        $posts = $q->getResult();
+        
+        $jsonData = json_decode(file_get_contents('http://knpbundles.com/newest.json'), true);
+
+        return $this->render('SymfonySiMainBundle:Default:index.html.twig', array(
+            'posts' => $posts,
+            'bundles' => $jsonData['results']
+        ));
     }
 
     public function copyrightAction()
