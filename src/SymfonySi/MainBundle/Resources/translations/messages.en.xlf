@@ -14,6 +14,10 @@
                 <source>Contact succeeded</source>
                 <target>Contact succeeded</target>
             </trans-unit>
+            <trans-unit id="contributors">
+                <source>Contributors</source>
+                <target>Contributors</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -30,6 +30,10 @@
                 <source>Message</source>
                 <target>Sporočilo</target>
             </trans-unit>
+            <trans-unit id="contributors">
+                <source>Contributors</source>
+                <target>Prispevki</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -11,14 +11,8 @@ symfony_si_main_copyright:
         _locale: sl|en
 
 symfony_si_main_join:
-    pattern: /{_locale}/join-in
+    pattern: /{_locale}/join-us
     defaults: { _controller: SymfonySiMainBundle:Default:join, _locale: sl }
-    requirements:
-        _locale: sl|en
-
-symfony_si_main_club:
-    pattern:  /{_locale}/symfony-slovenia-sensiolabs-connect-club
-    defaults: { _controller: SymfonySiMainBundle:Default:club, _locale: sl }
     requirements:
         _locale: sl|en
 
@@ -34,9 +28,9 @@ symfony_si_main_contact_success:
     requirements:
         _locale: sl|en
 
-symfony_si_main_irc:
-    pattern:  /{_locale}/symfony-si-irc-channel
-    defaults: { _controller: SymfonySiMainBundle:Default:irc, _locale: sl }
+symfony_si_main_contributors:
+    pattern:  /{_locale}/contributors
+    defaults: { _controller: SymfonySiMainBundle:Default:contributors, _locale: sl }
     requirements:
         _locale: sl|en
 

@@ -10,7 +10,7 @@
 
         <p>For official Symfony home, please visit <a href="http://symfony.com">symfony.com</a> website.</p>
         
-        <p>Join us on <a href="{{ path('symfony_si_main_club', {'_locale': app.request.locale }) }}">SensioLabs Connect</a>.</p>
+        <p>Join us on <a href="https://connect.sensiolabs.com/club/slovenia">SensioLabs Connect</a>.</p>
         
 
         <p>Similar local communities: <a href="http://symfony-austria.org">Symfony Austria</a>, <a href="http://symfony.am">Symfony Armenia</a>, <a href="http://symfony.it">Symfony Italia</a>, <a href="http://symfony.es">Symfony Spain</a>, <a href="http://symfony.se">Symfony Sweden</a> and many others.</p>
@@ -24,7 +24,7 @@
 
         <p>Za uraden Symfony dom, prosimo, obiščite <a href="http://symfony.com">symfony.com</a> spletno stran.</p>
 
-        <p>Pridružite se nam na <a href="{{ path('symfony_si_main_club') }}">SensioLabs Connect</a>.</p>
+        <p>Pridružite se nam na <a href="https://connect.sensiolabs.com/club/slovenia">SensioLabs Connect</a>.</p>
 
 
         <p>Podobne lokalne skupnosti: <a href="http://symfony-austria.org">Symfony Austria</a>, <a href="http://symfony.am">Symfony Armenia</a>, <a href="http://symfony.it">Symfony Italia</a>, <a href="http://symfony.es">Symfony Spain</a>, <a href="http://symfony.se">Symfony Sweden</a> in mnoge ostale.</p>
@@ -34,9 +34,8 @@
 
 {% block sidebar %}
     {% if app.request.locale == 'en' %}
-        <p><a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success">Join us</a></p>
     
-        <h2>Latest posts</h2>
+        <h2>Latest Symfony.si posts:</h2>
 
         <ul>
             {% for post in posts %}
@@ -50,8 +49,7 @@
             {% endfor %}
         </ul>
 
-
-        <h2>Latest bundles</h2>
+        <h2>Latest bundles:</h2>
         
         <p>Source: <a href="http://knpbundles.com">knpbundles.com</a></p>
         
@@ -61,9 +59,8 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p><a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success">Pridružite se</a></p>
         
-        <h2>Zadnje objave</h2>
+        <h2>Zadnje objave na Symfony.si:</h2>
         
         <ul>
             {% for post in posts %}
@@ -77,7 +74,7 @@
             {% endfor %}
         </ul>
 
-        <h2>Zadnji paketi</h2>
+        <h2>Zadnji paketi:</h2>
         
         <p>Vir: <a href="http://knpbundles.com">knpbundles.com</a></p>
         

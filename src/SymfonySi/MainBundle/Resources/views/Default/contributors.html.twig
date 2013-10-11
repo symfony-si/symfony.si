@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Copyrights{% endblock %}
+
+{% block body %}
+    {% if app.request.locale == 'en' %}
+        <h1>Symfony.si Contributors</h1>
+
+        <p>Symfony.si project was generously contributed by:</p>
+
+    {% else %}
+        <h1>Prispevki Symfony.si</h1>
+
+        <p>Symfony.si so radodarno prispevali:</p>
+
+	{% endif %}
+
+    <ul>
+        {% for contributor in contributors %}
+            <li><a href="{{ contributor.html_url }}"><img src="{{ contributor.avatar_url }}" /> {{ contributor.name }}</a></li>
+        {% endfor %}
+    <ul>
+
+{% endblock %}
+
+

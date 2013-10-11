@@ -37,11 +37,6 @@ class DefaultController extends Controller
         return $this->render('SymfonySiMainBundle:Default:join.html.twig');
     }
 
-    public function clubAction()
-    {
-        return $this->render('SymfonySiMainBundle:Default:club.html.twig');
-    }
-
     public function contactAction(Request $request)
     {
         $contact = new Contact();
@@ -86,5 +81,19 @@ class DefaultController extends Controller
     public function contactSuccessAction()
     {
         return $this->render('SymfonySiMainBundle:Default:contactSuccess.html.twig');
+    }
+
+    public function contributorsAction()
+    {
+        $contributors = json_decode(file_get_contents('https://api.github.com/repos/paradoxcode/symfony.si/contributors'), true);
+
+        foreach($contributors as $key=>$contributor) {
+            $jsonData = json_decode(file_get_contents('https://api.github.com/users/' . $contributor['login']), true);
+            $contributors[$key]['name'] = ($jsonData['name']) ? $jsonData['name'] : $contributor['login'];
+        }
+
+        return $this->render('SymfonySiMainBundle:Default:contributors.html.twig', array(
+            'contributors' => $contributors
+        ));
     }
 }

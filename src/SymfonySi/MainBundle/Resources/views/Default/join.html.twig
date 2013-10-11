@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% trans %}Join in{% endtrans %}{% endblock%}
+{% block title %}{% trans %}Join us{% endtrans %}{% endblock%}
 
 {% block body %}
     {% if app.request.locale == 'en' %}
@@ -12,11 +12,16 @@
 
         <p>SensioLabs Connect is a developer social network. Join the community, create your developer profile and start earning achievements for community.</p>
 
-        <p>Join our Symfony Slovenia club for connecting Slovenian Symfony and PHP users and developers:</p>
+        <p>Join our <a href="https://connect.sensiolabs.com/club/slovenia">Symfony Slovenia club</a> for connecting Slovenian Symfony and PHP users and developers.</p>
+        
+        <h2>GitHub</h2>
 
-        <a class="btn btn-lg btn-success" href="https://connect.sensiolabs.com/club/slovenia">Join us</a>
+        <p>Site Symfony.si and slovenian version of documentation is available also on GitHub:</p>
+
+        <p><a href="https://github.com/paradoxcode/symfony.si">github.com/paradoxcode/symfony.si</a></p>
+
     {% else %}
-        <h1>Pridužite se</h1>
+        <h1>Pridružite se</h1>
         
         <p>Symfony.si je tudi slovenska Symfony uporabniška skupina in skupnost. Če ste PHP razvijalec, Symfony uporabnik ali samo raziskujete Symfony ogrodje, premislite tudi o pridružitvi naši skupnosti.</p>
 
@@ -24,9 +29,14 @@
 
         <p>SensioLabs Connect je razvijalsko socialno omrežje. Pridružite se skupnosti, ustvarite vaš razvijalski profil in pričnite služiti dosežke za skupnost.</p>
 
-        <p>Pridružite se našemu Symfony Slovenia klubu za povezovanje slovenskih Symfony in PHP uporabnikov in razvijalcev:</p>
+        <p>Pridružite se našemu <a href="https://connect.sensiolabs.com/club/slovenia">Symfony Slovenia klubu</a> za povezovanje slovenskih Symfony in PHP uporabnikov in razvijalcev.</p>
 
-        <a class="btn btn-lg btn-success" href="https://connect.sensiolabs.com/club/slovenia">Pridružite se</a>
+        <h2>GitHub</h2>
+
+        <p>Stran Symfony.si in slovenska verzija dokumentacije je na voljo tudi na GitHub-u:</p>
+
+        <p><a href="https://github.com/paradoxcode/symfony.si">github.com/paradoxcode/symfony.si</a></p>
+
     {% endif %}
 
 {% endblock %}
