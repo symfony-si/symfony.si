@@ -15,13 +15,13 @@
 
      <table class="table table-hover">
         <tr><th>Content:</th><th>Progress:</th></tr>
-        <tr class="danger"><td>book/</td><td>{{ book }}</td></tr>
+        <tr class="warning"><td>book/</td><td>{{ book }}</td></tr>
         <tr class="success"><td>bundles/</td><td>{{ bundles }}</td></tr>
-        <tr class="danger"><td>components/</td><td>{{ components }}</td></tr>
-        <tr class="danger"><td>contributing/</td><td>{{ contributing }}</td></tr>
-        <tr class="danger"><td>cookbook/</td><td>{{ cookbook }}</td></tr>
+        <tr class="warning"><td>components/</td><td>{{ components }}</td></tr>
+        <tr class="warning"><td>contributing/</td><td>{{ contributing }}</td></tr>
+        <tr class="warning"><td>cookbook/</td><td>{{ cookbook }}</td></tr>
         <tr class="success"><td>quick_tour/</td><td>{{ quicktour}}</td></tr>
-        <tr class="danger"><td>reference/</td><td>{{ reference }}</td></tr>
+        <tr class="warning"><td>reference/</td><td>{{ reference }}</td></tr>
         <tr class="success"><td>other files in root</td><td>{{ others }}</td></tr>
         <tr><td></td><td></td></tr>
         <tr class="active"><th></th><th>{{ sum }}</th></tr>
@@ -41,13 +41,13 @@
 
     <table class="table table-hover">
         <tr><th>Vsebina:</th><th>Napredek:</th></tr>
-        <tr class="danger"><td>book/</td><td>{{ book }}</td></tr>
+        <tr class="warning"><td>book/</td><td>{{ book }}</td></tr>
         <tr class="success"><td>bundles/</td><td>{{ bundles }}</td></tr>
-        <tr class="danger"><td>components/</td><td>{{ components }}</td></tr>
-        <tr class="danger"><td>contributing/</td><td>{{ contributing }}</td></tr>
-        <tr class="danger"><td>cookbook/</td><td>{{ cookbook }}</td></tr>
+        <tr class="warning"><td>components/</td><td>{{ components }}</td></tr>
+        <tr class="warning"><td>contributing/</td><td>{{ contributing }}</td></tr>
+        <tr class="warning"><td>cookbook/</td><td>{{ cookbook }}</td></tr>
         <tr class="success"><td>quick_tour/</td><td>{{ quicktour }}</td></tr>
-        <tr class="danger"><td>reference/</td><td>{{ reference }}</td></tr>
+        <tr class="warning"><td>reference/</td><td>{{ reference }}</td></tr>
         <tr class="success"><td>ostale datoteke v vrhnji mapi</td><td>{{ others }}</td></tr>
         <tr><td></td><td></td></tr>
         <tr class="active"><th></th><th>{{ sum }}</th></tr>
@@ -62,7 +62,7 @@
 
 {% block sidebar %}
 
-<h2>Documentation:</h2>
+<h2>{% trans %}Documentation{% endtrans %}:</h2>
 
 <ul class="nav nav-pills nav-stacked">
     <li><a href="">Book</a></li>
