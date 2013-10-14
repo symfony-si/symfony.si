@@ -1,6 +1,6 @@
 # Symfony.si
 
-[![Build Status](https://secure.travis-ci.org/paradoxcode/symfony.si.png?branch=master)](http://travis-ci.org/paradoxcode/symfony.si)
+[![Build Status](https://secure.travis-ci.org/symfony-si/symfony.si.png?branch=master)](http://travis-ci.org/symfony-si/symfony.si)
 
 ## About
 
