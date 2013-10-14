@@ -85,7 +85,7 @@ class DefaultController extends Controller
 
     public function contributorsAction()
     {
-        $contributors = json_decode(file_get_contents('https://api.github.com/repos/paradoxcode/symfony.si/contributors'), true);
+        $contributors = json_decode(file_get_contents('https://api.github.com/repos/symfony-si/symfony.si/contributors'), true);
 
         foreach($contributors as $key=>$contributor) {
             $jsonData = json_decode(file_get_contents('https://api.github.com/users/' . $contributor['login']), true);
