@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
+        <title>{% block title %}Symfony.si - Error occurred{% endblock %}{{ status_text }}</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('css/site.css') }}" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="/assets/js/html5shiv.js"></script>
+            <script src="/assets/js/respond.min.js"></script>
+        <![endif]-->
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('symfony_si_main_homepage') }}">Symfony.si</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{ path('symfony_si_main_homepage', {'_locale': app.request.locale}) }}">{% trans %}Home{% endtrans %}</a></li>
+                        <li><a href="{{ path('symfony_si_main_join', {'_locale': app.request.locale}) }}">{% trans %}Join us{% endtrans %}</a></li>
+                        <li><a href="{{ path('symfony_si_blog_homepage', {'_locale': app.request.locale}) }}">Blog</a></li>
+                        <li><a href="{{ path('symfony_si_docs_homepage', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li{% if app.request.locale == 'sl' %} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'sl'}) }}">Slovenian</a></li>
+                        <li{% if app.request.locale == 'en'%} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'en'}) }}">English</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="headerImage"></div>
+            <div class="starter-template">
+                <div class="row">
+                <div class="col-md-9">
+                    {% block body %}{% endblock %}
+                    <h1>Oops! And Error Occurred</h1>
+                    <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+                </div>
+                    <div class="col-md-3">
+                        <div class="sidebar">
+                            <h2>SensioLabs Connect Club:</h2>
+                            <p><a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">{% trans %}Join us{% endtrans %}</a></p>
+                            {% block sidebar %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container -->
+
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted credit">
+                    Symfony.si - Symfony Slovenia &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="http://symfony.com" target="_blank">{% trans %}Symfony.com official page{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_main_copyright') }}">{% trans %}Copyrights{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="http://github.com/symfony-si/symfony.si">GitHub</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_main_contact', {'_locale': app.request.locale}) }}">{% trans %}Contact us{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_main_contributors') }}">{% trans %}Contributors{% endtrans %}</a>
+                </p>
+            </div>
+        </div>
+
+        <a href="https://github.com/paradoxcode/symfony.si"><img style="z-index: 999999; position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+        {% block javascripts %}{% endblock %}
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
+    </body>
+</html>
