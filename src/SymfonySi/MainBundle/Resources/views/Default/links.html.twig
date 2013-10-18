@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{% trans %}Useful links{% endtrans %}{% endblock%}
+
+{% block body %}
+    {% if app.request.locale == 'en' %}
+        <h1>Useful links</h1>
+
+
+    {% else %}
+        <h1>Koristne povezave</h1>
+
+    {% endif %}
+
+{% endblock %

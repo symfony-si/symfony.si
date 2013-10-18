@@ -34,3 +34,9 @@ symfony_si_main_contributors:
     requirements:
         _locale: sl|en
 
+symfony_si_main_links:
+    pattern:  /{_locale}/links
+    defaults: { _controller: SymfonySiMainBundle:Default:links, _locale: sl }
+    requirements:
+        _locale: sl|en
+

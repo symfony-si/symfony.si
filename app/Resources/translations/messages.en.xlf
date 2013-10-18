@@ -26,6 +26,10 @@
                 <source>Symfony.com official page</source>
                 <target>Symfony.com official page</target>
             </trans-unit>
+            <trans-unit id="useful-links">
+                <source>Useful links</source>
+                <target>Useful links</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

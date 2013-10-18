@@ -96,4 +96,10 @@ class DefaultController extends Controller
             'contributors' => $contributors
         ));
     }
+    
+    public function linksAction()
+    {
+        return $this->render('SymfonySiMainBundle:Default:links.html.twig');
+    }
+
 }
