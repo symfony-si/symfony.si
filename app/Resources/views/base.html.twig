@@ -37,10 +37,18 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ path('symfony_si_main_homepage', {'_locale': app.request.locale}) }}">{% trans %}Home{% endtrans %}</a></li>
-                        <li><a href="{{ path('symfony_si_main_join', {'_locale': app.request.locale}) }}">{% trans %}Join us{% endtrans %}</a></li>
-                        <li><a href="{{ path('symfony_si_blog_homepage', {'_locale': app.request.locale}) }}">Blog</a></li>
-                        <li><a href="{{ path('symfony_si_docs_homepage', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a></li>
+                        <li {% if app.request.get('_route') == 'symfony_si_main_homepage' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_main_homepage', {'_locale': app.request.locale}) }}">{% trans %}Home{% endtrans %}</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'symfony_si_main_join' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_main_join', {'_locale': app.request.locale}) }}">{% trans %}Join us{% endtrans %}</a>
+                        </li>
+                        <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_blog' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_blog_homepage', {'_locale': app.request.locale}) }}">Blog</a>
+                        </li>
+                        <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_docs' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_docs_homepage', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{% if app.request.locale == 'sl' %} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'sl'}) }}">Slovenian</a></li>
