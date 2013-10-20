@@ -10,9 +10,13 @@ Symfony is a framework, community, a philosophy and more all working together in
 that it deserves special attention for that matter so we've decided to make a website specially for a
 Slovenian Symfony community as well.
 
-Inpsired by Symfony Italia, Symfony Armenia and Symfony Spain here is Symfony Slovenia as well. Project
-is open sourced and contributors to the project are most welcome.
+Inspired by Symfony Italia, Symfony Armenia, Symfony Spain and many others here is Symfony Slovenia as well.
 
+Symfony.si project aims to provide useful information to users of Symfony PHP framework and connect them with Slovenian Symfony users.
+We respect that Symfony is a trademark of Fabien Potencier so this website is about community and is more of an introduction to
+the official Symfony framework and [website](http://symfony.com).
+
+Project is open source and we encourage new and existing users of Symfony to contribute and get involved in the project.
 
 ## Contributing
 
@@ -23,7 +27,7 @@ If you're excited about Symfony as we are and would like to contribute to this p
 ## Installation
 
 Application is built with Symfony PHP framework (obviously) and is using Symfony Standard Edition.
-You can fork this project and send pull requests. Local installation can be done by following procedure:
+You can fork this project and send pull requests. Local installation can be done by the following procedure:
 
 ```bash
 git clone git@github.com:your_username/symfony.si
@@ -36,7 +40,9 @@ php app/console doctrine:schema:update --force
 php app/console doctrine:fixtures:load
 ```
 
-Documentation is built using [Sphinx](http://sphinx-doc.org). For building documentation locally use the following procedure:
+After this you should get a working symfony.si website on your local computer. Documentation section (doc folder in the root of application)
+is mainly built with [Sphinx](http://sphinx-doc.org). Building documentation requires python Docutils and Sphinx installed and is not needed
+for your installation. For building documentation locally use the following procedure:
 
 ```bash
 git clone git://github.com/symfony-si/symfony-docs-sl.git doc/sources
