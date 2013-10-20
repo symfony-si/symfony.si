@@ -29,4 +29,19 @@ class DefaultController extends Controller
             'sum' => $sum . ' %'
         ));
     }
+
+    public function showAction($page)
+    {
+        $page = $this->getRequest()->server->get('DOCUMENT_ROOT') . '/doc/current/' . $page;
+
+        if(file_exists($page)) {
+            $content = file_get_contents($page);
+        } else {
+            $content = "";
+        }
+        
+        return $this->render('SymfonySiDocsBundle:Default:show.html.twig', array(
+            'content' => $content
+        ));
+    }
 }

@@ -3,4 +3,11 @@ symfony_si_docs_homepage:
     defaults: { _controller: SymfonySiDocsBundle:Default:index, _locale: 'sl' }
     requirements:
         _locale: sl|en
-    
+
+symfony_si_docs_show:
+    pattern: /{_locale}/documentation/current/{page}
+    defaults: { _controller: SymfonySiDocsBundle:Default:show, _locale: 'sl' }
+    requirements:
+        _locale: sl|en
+        page: ".+"
+

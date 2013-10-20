@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{% trans %}Documentation{% endtrans %}{% endblock %}
+
+{% block body %}
+
+    {% if app.request.locale == 'en' %}
+    {% else %}
+
+    {% endif %}
+
+    {{ content|raw }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ include(
+        'SymfonySiDocsBundle:Default:sidebar.html.twig'
+    ) }}
+{% endblock %}

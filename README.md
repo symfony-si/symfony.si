@@ -25,7 +25,7 @@ If you're excited about Symfony as we are and would like to contribute to this p
 Application is built with Symfony PHP framework (obviously) and is using Symfony Standard Edition.
 You can fork this project and send pull requests. Local installation can be done by following procedure:
 
-```php
+```bash
 git clone git@github.com:your_username/symfony.si
 cd symfony.si
 curl -s https://getcomposer.org/installer |php
@@ -34,6 +34,14 @@ php app/console assets:install
 php app/console doctrine:database:create
 php app/console doctrine:schema:update --force
 php app/console doctrine:fixtures:load
+```
+
+Documentation is built using [Sphinx](http://sphinx-doc.org). For building documentation locally use the following procedure:
+
+```bash
+git clone git://github.com/symfony-si/symfony-docs-sl.git doc/sources
+cd doc
+sphinx-build -b html -c ./ sources ../web/doc/current
 ```
 
 ## License
