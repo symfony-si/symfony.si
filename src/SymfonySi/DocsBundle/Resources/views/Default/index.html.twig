@@ -27,14 +27,16 @@
 
     <p><a class="btn btn-lg btn-success" href="https://github.com/paradoxcode/symfony-docs-sl">Slovenska dokumentacija</a></p>
 
+    {{ content|raw }}
 {% endif %}
 
-{{ content|raw }}
 
 {% endblock %}
 
 {% block sidebar %}
-    {{ include(
-        'SymfonySiDocsBundle:Default:sidebar.html.twig'
-    ) }}
+    {% if app.request.locale == "sl" %}
+        {{ include(
+            'SymfonySiDocsBundle:Default:sidebar.html.twig'
+        ) }}
+    {% endif %}
 {% endblock %}

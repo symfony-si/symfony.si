@@ -1,13 +1,32 @@
 <h2>{% trans %}Documentation{% endtrans %}:</h2>
 
 <ul class="nav nav-pills nav-stacked">
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'book/index.html'}) }}">Knjiga</a></li>
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'bundles/index.html'}) }}">Paketi</a></li>
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'components/index.html'}) }}">Komponente</a></li>
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'contributing/index.html'}) }}">Prispevanje</a></li>
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'cookbook/index.html'}) }}">Recepti</a></li>
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'quick_tour/index.html'}) }}">Hiter pregled</a></li>
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'reference/index.html'}) }}">Referenca</a></li>
-    <li><a href="{{ path('symfony_si_docs_show', {'page': 'glossary.html'}) }}">Slovar</a></li>
+    <li {% if app.request.attributes.get('page')|slice(0,4) == 'book' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'book/index.html'}) }}">Knjiga</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,8) == 'cookbook' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'cookbook/index.html'}) }}">Recepti</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,10) == 'components' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'components/index.html'}) }}">Komponente</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,9) == 'reference' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'reference/index.html'}) }}">Referenca</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,8) == 'glossary' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'glossary.html'}) }}">Slovar</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,8) == 'genindex' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'genindex.html'}) }}">Indeks</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,7) == 'bundles' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'bundles/index.html'}) }}">Paketi</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,12) == 'contributing' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'contributing/index.html'}) }}">Prispevanje</a>
+    </li>
+    <li {% if app.request.attributes.get('page')|slice(0,10) == 'quick_tour' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'quick_tour/index.html'}) }}">Hiter pregled</a>
+    </li>
 </ul>
 
