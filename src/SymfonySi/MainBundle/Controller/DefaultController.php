@@ -85,11 +85,26 @@ class DefaultController extends Controller
 
     public function contributorsAction()
     {
-        $contributors = json_decode(file_get_contents('https://api.github.com/repos/symfony-si/symfony.si/contributors'), true);
+        $srcContributors = json_decode(file_get_contents('https://api.github.com/repos/symfony-si/symfony.si/contributors'), true);
+        $docsContributors = json_decode(file_get_contents('https://api.github.com/repos/symfony-si/symfony-docs-sl/contributors'), true);
+        $contributors = array();
 
-        foreach($contributors as $key=>$contributor) {
+        foreach($srcContributors as $key=>$contributor) {
             $jsonData = json_decode(file_get_contents('https://api.github.com/users/' . $contributor['login']), true);
-            $contributors[$key]['name'] = ($jsonData['name']) ? $jsonData['name'] : $contributor['login'];
+            $contributors[$contributor['login']] = array(
+                'name'       => ($jsonData['name']) ? $jsonData['name'] : $contributor['login'],
+                'html_url'   => $contributor['html_url'],
+                'avatar_url' => $contributor['avatar_url'],
+            );
+        }
+        
+        foreach($docsContributors as $key=>$contributor) {
+            $jsonData = json_decode(file_get_contents('https://api.github.com/users/' . $contributor['login']), true);
+            $contributors[$contributor['login']] = array(
+                'name'       => ($jsonData['name']) ? $jsonData['name'] : $contributor['login'],
+                'html_url'   => $contributor['html_url'],
+                'avatar_url' => $contributor['avatar_url'],
+            );
         }
 
         return $this->render('SymfonySiMainBundle:Default:contributors.html.twig', array(
