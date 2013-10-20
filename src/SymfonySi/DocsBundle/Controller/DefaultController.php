@@ -37,7 +37,7 @@ class DefaultController extends Controller
         if(file_exists($page)) {
             $content = file_get_contents($page);
         } else {
-            $content = "";
+            throw $this->createNotFoundException('The documentation page does not exist');
         }
         
         return $this->render('SymfonySiDocsBundle:Default:show.html.twig', array(
