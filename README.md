@@ -30,14 +30,14 @@ Application is built with Symfony PHP framework (obviously) and is using Symfony
 You can fork this project and send pull requests. Local installation can be done by the following procedure:
 
 ```bash
-git clone git@github.com:your_username/symfony.si
-cd symfony.si
-curl -s https://getcomposer.org/installer |php
-php composer.phar install
-php app/console assets:install
-php app/console doctrine:database:create
-php app/console doctrine:schema:update --force
-php app/console doctrine:fixtures:load
+$ git clone git@github.com:your_username/symfony.si
+$ cd symfony.si
+$ curl -s https://getcomposer.org/installer |php
+$ php composer.phar install
+$ php app/console assets:install
+$ php app/console doctrine:database:create
+$ php app/console doctrine:schema:update --force
+$ php app/console doctrine:fixtures:load
 ```
 
 After this you should get a working symfony.si website on your local computer. Documentation section (doc folder in the root of application)
@@ -45,9 +45,8 @@ is mainly built with [Sphinx](http://sphinx-doc.org). Building documentation req
 for your installation. For building documentation locally use the following procedure:
 
 ```bash
-git clone git://github.com/symfony-si/symfony-docs-sl.git doc/sources
-cd doc
-sphinx-build -b html -c ./ sources ../web/doc/current
+$ git clone git://github.com/symfony-si/symfony-docs-sl.git doc/sources
+$ php app/console docs:generate
 ```
 
 ## License
