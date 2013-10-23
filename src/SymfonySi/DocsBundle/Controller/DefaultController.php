@@ -17,11 +17,13 @@ class DefaultController extends Controller
 
     public function showAction($page)
     {
-        $page = $this->getRequest()->server->get('DOCUMENT_ROOT') . '/doc/current/' . $page;
+        $file = $this->getRequest()->server->get('DOCUMENT_ROOT') . '/doc/current/' . $page;
 
-        if(file_exists($page)) {
-            $content = file_get_contents($page);
-        } else {
+        if(file_exists($file) && substr($file, -5) == '.html') {
+            $content = file_get_contents($file);
+        } elseif(file_exists($file) && substr($file, -4) == '.png') {
+            return $this->redirect('/doc/current/' . $page);
+        } else  {
             throw $this->createNotFoundException('The documentation page does not exist');
         }
         
