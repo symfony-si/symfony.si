@@ -15,11 +15,15 @@ class GenerateCommand extends ContainerAwareCommand
         $this
             ->setName('docs:generate')
             ->setDescription('Generate html documents')
+            ->addOption('update-sources', null, InputOption::VALUE_NONE, 'If set the task will git pull docs sources from GitHub')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        if ($input->getOption('update-sources')) {
+            exec('cd doc/sources && git pull');
+        }
         exec('sphinx-build -b html -c doc doc/sources web/doc/current');
         $output->writeln('Documentation generated');
     }

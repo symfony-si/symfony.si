@@ -46,7 +46,7 @@ for your installation. For building documentation locally use the following proc
 
 ```bash
 $ git clone git://github.com/symfony-si/symfony-docs-sl.git doc/sources
-$ php app/console docs:generate
+$ php app/console docs:generate --update-sources
 ```
 
 ## License
