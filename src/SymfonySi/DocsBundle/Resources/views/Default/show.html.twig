@@ -27,7 +27,13 @@
     <script src="{{ asset('/doc/current/_static/doctools.js') }}"></script>
     <script src="{{ asset('/doc/current/_static/searchtools.js') }}"></script>
     {# <script src="{{ asset('/doc/current/_static/websupport.js') }}"></script> #}
-
+    <script type="text/javascript">
+        jQuery(function() { Search.loadIndex("{{ asset('/doc/current/searchindex.js') }}"); });
+    </script>
+    {# this is used when loading the search index using $.ajax fails,
+    such as on Chrome for documents on localhost #}
+    <script type="text/javascript" id="searchindexloader"></script>
+    <script type="text/javascript">$('#fallback').hide();</script>
 {% endblock %}
 
 {% block stylesheets %}

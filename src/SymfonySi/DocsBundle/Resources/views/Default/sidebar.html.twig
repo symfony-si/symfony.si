@@ -28,5 +28,9 @@
     <li {% if app.request.attributes.get('page')|slice(0,10) == 'quick_tour' %} class="active"{% endif %}>
         <a href="{{ path('symfony_si_docs_show', {'page': 'quick_tour/index.html'}) }}">Hiter pregled</a>
     </li>
+    <li {% if app.request.attributes.get('page')|slice(0,6) == 'search' %} class="active"{% endif %}>
+        <a href="{{ path('symfony_si_docs_show', {'page': 'search.html'}) }}">Iskanje</a>
+    </li>
+
 </ul>
 

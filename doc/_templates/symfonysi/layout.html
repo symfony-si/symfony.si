@@ -73,6 +73,7 @@
     {{ metatags }}
     {%- block htmltitle %}
     <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+    {{ script() }}
     {%- endblock %}
 {%- block linktags %}
     {%- if hasdoc('about') %}
