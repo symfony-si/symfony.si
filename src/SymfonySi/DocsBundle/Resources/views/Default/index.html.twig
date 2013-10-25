@@ -40,3 +40,23 @@
         ) }}
     {% endif %}
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('/doc/current/_static/underscore.js') }}"></script>
+    <script src="{{ asset('/doc/current/_static/doctools.js') }}"></script>
+    <script src="{{ asset('/doc/current/_static/searchtools.js') }}"></script>
+    {# <script src="{{ asset('/doc/current/_static/websupport.js') }}"></script> #}
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('/doc/current/_static/basic.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/doc/current/_static/pygments.css') }}" rel="stylesheet" />
+
+{% endblock %}
+
+
