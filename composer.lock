@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "50b5a9407fa88812f4078f2434621dc8",
+    "hash": "6ac610a6ca53951e6b6b76424dee7f1d",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1501,6 +1501,65 @@
             "time": "2013-10-24 09:04:49"
         },
         {
+            "name": "sonata-project/doctrine-orm-admin-bundle",
+            "version": "dev-patch-1",
+            "target-dir": "Sonata/DoctrineORMAdminBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/peterkokot/SonataDoctrineORMAdminBundle.git",
+                "reference": "ac76019adf6ca73e6dd2930885dd05a559ef4da1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/peterkokot/SonataDoctrineORMAdminBundle/zipball/ac76019adf6ca73e6dd2930885dd05a559ef4da1",
+                "reference": "ac76019adf6ca73e6dd2930885dd05a559ef4da1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "~2.3",
+                "sonata-project/admin-bundle": ">=2.2.2",
+                "symfony/symfony": "~2.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\DoctrineORMAdminBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/contributors"
+                }
+            ],
+            "description": "Symfony Sonata / Integrate Doctrine ORM into the SonataAdminBundle",
+            "homepage": "http://sonata-project.org/bundles/admin",
+            "keywords": [
+                "Admin Generator",
+                "admin",
+                "bootstrap",
+                "generator",
+                "sonata"
+            ],
+            "support": {
+                "source": "https://github.com/peterkokot/SonataDoctrineORMAdminBundle/tree/patch-1"
+            },
+            "time": "2013-11-03 00:30:35"
+        },
+        {
             "name": "sonata-project/exporter",
             "version": "1.3.2",
             "source": {
@@ -2159,6 +2218,7 @@
     "minimum-stability": "beta",
     "stability-flags": {
         "sonata-project/admin-bundle": 20,
+        "sonata-project/doctrine-orm-admin-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
         "fabpot/sphinx-php": 20

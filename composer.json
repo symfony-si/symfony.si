@@ -20,7 +20,7 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "sonata-project/admin-bundle": "dev-master",
-        //"sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-patch-1",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "fabpot/sphinx-php": "dev-master"
@@ -54,5 +54,11 @@
         "branch-alias": {
             "dev-master": "2.4-dev"
         }
+    },
+    "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/peterkokot/SonataDoctrineORMAdminBundle"
     }
+    ]
 }
