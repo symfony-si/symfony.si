@@ -8,11 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $content = file_get_contents($this->getRequest()->server->get('DOCUMENT_ROOT') . '/doc/current/index.html');
-
-        return $this->render('SymfonySiDocsBundle:Default:index.html.twig', array(
-            'content' => $content
-        ));
+        return $this->render('SymfonySiDocsBundle:Default:index.html.twig');
     }
 
     public function showAction($page)

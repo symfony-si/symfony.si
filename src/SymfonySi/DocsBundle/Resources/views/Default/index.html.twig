@@ -13,8 +13,6 @@
     
     <p>We have started translating documentation in October 2013 for the Symfony 2.4 version.</p>
 
-    <p><a class="btn btn-lg btn-success" href="https://github.com/paradoxcode/symfony-docs-sl">Slovenian documentation</a></p>
-
 {% else %}
 
     <h1>Slovenska Symfony dokumentacija</h1>
@@ -25,9 +23,8 @@
 
     <p>Prevajati smo pričeli v oktobru 2013 za Symfony 2.4 verzijo.</p>
 
-    <p><a class="btn btn-lg btn-success" href="https://github.com/paradoxcode/symfony-docs-sl">Slovenska dokumentacija</a></p>
+    <p><a class="btn btn-lg btn-success" href="{{ path('symfony_si_docs_show', {'page': 'index.html'}) }}">Slovenska dokumentacija</a></p>
 
-    {{ content|raw }}
 {% endif %}
 
 
