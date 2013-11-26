@@ -1122,16 +1122,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd"
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f72392d0e6eb855118f5a84e89ac2d257c704abd",
-                "reference": "f72392d0e6eb855118f5a84e89ac2d257c704abd",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
                 "shasum": ""
             },
             "require": {
@@ -1139,21 +1139,26 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
+                "aws/aws-sdk-php": "~2.4.8",
                 "doctrine/couchdb": "dev-master",
                 "mlehner/gelf-php": "1.0.*",
-                "raven/raven": "0.5.*"
+                "phpunit/phpunit": "~3.7.0",
+                "raven/raven": "0.5.*",
+                "ruflin/elastica": "0.90.*"
             },
             "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server"
+                "raven/raven": "Allow sending log messages to a Sentry server",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6.x-dev"
+                    "dev-master": "1.7.x-dev"
                 }
             },
             "autoload": {
@@ -1180,7 +1185,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-07-28 22:38:30"
+            "time": "2013-11-14 19:48:31"
         },
         {
             "name": "psr/log",
@@ -1368,12 +1373,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "d7402590f87334f5bff49f9ec268d304c7d410c0"
+                "reference": "d02b7e0b5246556c338ba004050db4f456f06690"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d7402590f87334f5bff49f9ec268d304c7d410c0",
-                "reference": "d7402590f87334f5bff49f9ec268d304c7d410c0",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d02b7e0b5246556c338ba004050db4f456f06690",
+                "reference": "d02b7e0b5246556c338ba004050db4f456f06690",
                 "shasum": ""
             },
             "require": {
@@ -1438,7 +1443,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2013-11-12 14:10:21"
+            "time": "2013-11-25 11:47:35"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -1509,12 +1514,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "0663803ca2e95fe23a038134e2e30fc7357bee5f"
+                "reference": "15ed873424fb30af43569014a48f6d216fdefe78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/0663803ca2e95fe23a038134e2e30fc7357bee5f",
-                "reference": "0663803ca2e95fe23a038134e2e30fc7357bee5f",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/15ed873424fb30af43569014a48f6d216fdefe78",
+                "reference": "15ed873424fb30af43569014a48f6d216fdefe78",
                 "shasum": ""
             },
             "require": {
@@ -1557,7 +1562,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2013-11-12 15:41:10"
+            "time": "2013-11-14 12:36:59"
         },
         {
             "name": "sonata-project/exporter",
@@ -2001,16 +2006,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.0-BETA2",
+            "version": "v2.4.0-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b6310973d7ebc28955841ca0a294e2667d5e8a63"
+                "reference": "32ceb0b89c9ec028434f156cfcea9f9eb186f717"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b6310973d7ebc28955841ca0a294e2667d5e8a63",
-                "reference": "b6310973d7ebc28955841ca0a294e2667d5e8a63",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/32ceb0b89c9ec028434f156cfcea9f9eb186f717",
+                "reference": "32ceb0b89c9ec028434f156cfcea9f9eb186f717",
                 "shasum": ""
             },
             "require": {
@@ -2110,7 +2115,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-30 13:25:52"
+            "time": "2013-11-25 19:35:53"
         },
         {
             "name": "twig/extensions",
