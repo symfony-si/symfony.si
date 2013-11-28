@@ -24,7 +24,7 @@ class GenerateCommand extends ContainerAwareCommand
         if ($input->getOption('update-sources')) {
             exec('cd doc/sources && git pull');
         }
-        exec('sphinx-build -b html -c doc doc/sources web/doc/current');
+        exec('sphinx-build -a -b html -c doc doc/sources web/doc/current');
         $output->writeln('Documentation generated');
     }
 }
