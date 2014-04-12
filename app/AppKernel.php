@@ -16,15 +16,19 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new SymfonySi\MainBundle\SymfonySiMainBundle(),
-            new SymfonySi\BlogBundle\SymfonySiBlogBundle(),
-            new Sonata\AdminBundle\SonataAdminBundle(),
+
+            new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+
+            new SymfonySi\MainBundle\SymfonySiMainBundle(),
+            new SymfonySi\BlogBundle\SymfonySiBlogBundle(),
             new SymfonySi\DocsBundle\SymfonySiDocsBundle(),
         );
 
