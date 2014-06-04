@@ -1,6 +1,7 @@
 # Symfony.si
 
 [![Build Status](https://secure.travis-ci.org/symfony-si/symfony.si.png?branch=master)](http://travis-ci.org/symfony-si/symfony.si)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/3d099459-fdfc-475e-a8a6-a5515429161c/big.png)](https://insight.sensiolabs.com/projects/3d099459-fdfc-475e-a8a6-a5515429161c)
 
 ## About
 
