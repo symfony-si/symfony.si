@@ -13,5 +13,9 @@ parameters:
 
     locale:            sl
     secret:            ThisTokenIsNotSoSecretChangeIt
-    
-    symfonysi_admin_email:  ~
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: true
+
+    symfonysi_admin_email: ~

@@ -16,9 +16,9 @@ class DefaultController extends Controller
             ->orderBy('p.created', 'DESC')
             ->setMaxResults(10)
             ->getQuery();
-            
+
         $posts = $q->getResult();
-        
+
         $jsonData = json_decode(file_get_contents('http://knpbundles.com/newest.json'), true);
 
         return $this->render('SymfonySiMainBundle:Default:index.html.twig', array(
@@ -97,7 +97,7 @@ class DefaultController extends Controller
                 'avatar_url' => $contributor['avatar_url'],
             );
         }
-        
+
         foreach($docsContributors as $key=>$contributor) {
             $jsonData = json_decode(file_get_contents('https://api.github.com/users/' . $contributor['login']), true);
             $contributors[$contributor['login']] = array(
@@ -111,10 +111,14 @@ class DefaultController extends Controller
             'contributors' => $contributors
         ));
     }
-    
+
     public function linksAction()
     {
         return $this->render('SymfonySiMainBundle:Default:links.html.twig');
     }
 
+    public function twitterAction()
+    {
+        return $this->render('SymfonySiMainBundle:Default:twitter.html.twig');
+    }
 }

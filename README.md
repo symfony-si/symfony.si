@@ -36,10 +36,10 @@ $ git clone git@github.com:your_username/symfony.si
 $ cd symfony.si
 $ curl -s https://getcomposer.org/installer |php
 $ php composer.phar install
-$ php app/console assets:install
-$ php app/console doctrine:database:create
-$ php app/console doctrine:schema:update --force
-$ php app/console doctrine:fixtures:load
+$ php bin/console assets:install
+$ php bin/console doctrine:database:create
+$ php bin/console doctrine:schema:update --force
+$ php bin/console doctrine:fixtures:load
 ```
 
 After this you should get a working symfony.si website on your local computer. Documentation section (doc folder in the root of application)
