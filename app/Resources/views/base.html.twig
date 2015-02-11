@@ -10,7 +10,7 @@
         <title>{% block title %}Symfony.si - Slovenian Symfony User Group{% endblock %}</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="{{ asset('css/site.css') }}" rel="stylesheet">
@@ -25,7 +25,7 @@
         <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script>
     </head>
     <body>
-        <?prettify?>
+        {{ include('google.html.twig') }}
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -70,6 +70,8 @@
                             <h2>SensioLabs Connect Club:</h2>
                             <p><a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">{% trans %}Join us{% endtrans %}</a></p>
                             {% block sidebar %}{% endblock %}
+                            <a class="twitter-timeline" href="https://twitter.com/symfonysi" data-widget-id="565644083893661696">Tweets by @symfonysi</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </div>
                     </div>
                 </div>
@@ -86,19 +88,14 @@
                     <a href="{{ path('symfony_si_main_links', {'_locale': app.request.locale}) }}">{% trans %}Useful links{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="{{ path('symfony_si_main_contributors') }}">{% trans %}Contributors{% endtrans %}</a>
                 </p>
-                <p class="">
-                    <a class="twitter-timeline" href="https://twitter.com/twitterapi" data-widget-id="YOUR-WIDGET-ID-HERE" data-theme="dark" data-link-color="#cc0000"  data-related="twitterapi,twitter" data-aria-polite="assertive" width="300" height="500" lang="EN">Tweets by @twitterapi</a>
-                </p>
             </div>
         </div>
-
-        <a href="https://github.com/symfony-si/symfony.si"><img style="z-index: 999999; position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="{{ asset('js/jquery.js') }}"></script>
-        <script src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
