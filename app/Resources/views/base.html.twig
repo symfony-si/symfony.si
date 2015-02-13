@@ -30,17 +30,19 @@
     <body>
         {{ include('google.html.twig') }}
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ path('symfony_si_main_homepage') }}">Symfony.si</a>
+                    <a class="navbar-brand" href="{{ path('symfony_si_main_homepage') }}" title="Symfony.si"><img src="{{ asset('images/logo.png') }}" alt="Symfony.si"></a>
                 </div>
-                <div class="collapse navbar-collapse">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li {% if app.request.get('_route') == 'symfony_si_main_join' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_main_join') }}">Join us</a>
@@ -49,15 +51,18 @@
                             <a href="{{ path('symfony_si_blog_homepage') }}">Blog</a>
                         </li>
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_docs' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_docs_homepage') }}">SI Documentation</a>
+                            <a href="{{ path('symfony_si_docs_homepage') }}">SI documentation</a>
                         </li>
-                        <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_ecosystem' %} class="active"{% endif %}>
+                        <li {% if app.request.get('_route')|slice(0,20) == 'symfony_si_ecosystem' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_ecosystem_homepage') }}">Ecosystem</a>
                         </li>
                     </ul>
-                </div><!--/.nav-collapse -->
+                    <form class="navbar-form navbar-right">
+                        <a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">SensioLabs Connect</a>
+                    </form>
+                </div>
             </div>
-        </div>
+        </nav>
 
         <div class="container">
             <div class="headerImage"></div>
@@ -66,8 +71,6 @@
                 <div class="col-md-9">{% block body %}{% endblock %}</div>
                     <div class="col-md-3">
                         <div class="sidebar">
-                            <h2>SensioLabs Connect Club:</h2>
-                            <p><a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">Join us</a></p>
                             {% block sidebar %}{% endblock %}
                             <a class="twitter-timeline" href="https://twitter.com/symfonysi" data-widget-id="565644083893661696">Tweets by @symfonysi</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

@@ -14,7 +14,7 @@
 
     <p>Similar local communities: <a href="http://symfony-austria.org">Symfony Austria</a>, <a href="http://symfony.am">Symfony Armenia</a>, <a href="http://symfony.it">Symfony Italia</a>, <a href="http://symfony.es">Symfony Spain</a>, <a href="http://symfony.se">Symfony Sweden</a> and many others.</p>
 
-    <h2>Latest Symfony.si posts:</h2>
+    <h2>Latest Symfony.si posts</h2>
 
     <ul>
         {% for post in posts %}
@@ -26,10 +26,8 @@
                 }) }}">{{ post.title }}</a></li>
         {% endfor %}
     </ul>
-{% endblock %}
 
-{% block sidebar %}
-    <h2>Latest bundles:</h2>
+    <h2>Latest Symfony bundles</h2>
 
     <p>Source: <a href="http://knpbundles.com">knpbundles.com</a></p>
 
@@ -38,4 +36,8 @@
             <li><a href="{{ bundle.url }}" target="_blank">{{ bundle.name }}</a></li>
         {% endfor %}
     </ul>
+{% endblock %}
+
+{% block sidebar %}
+
 {% endblock %}

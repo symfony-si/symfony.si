@@ -3,6 +3,17 @@ body {
     height: 100%;
     padding-top: 25px;
     /* The html and body elements cannot have any padding or margin. */
+    font-size: 16px;
+}
+
+.navbar-nav li a {
+    line-height: 60px;
+    height: 60px;
+    padding-top: 0;
+}
+
+.navbar-brand {
+    padding: 10px 10px 10px 15px;
 }
 
 /* Wrapper for page content to push down footer */
