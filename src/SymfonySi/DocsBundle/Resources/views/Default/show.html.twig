@@ -1,23 +1,15 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% trans %}Documentation{% endtrans %}{% endblock %}
+{% block title %}Documentation{% endblock %}
 
 {% block body %}
-
-    {% if app.request.locale == 'sl' %}
-        {{ content|raw }}
-    {% endif %}
-
+    {{ content|raw }}
 {% endblock %}
 
 {% block sidebar %}
-    {% if app.request.locale == 'sl' %}
-
     {{ include(
         'SymfonySiDocsBundle:Default:sidebar.html.twig'
     ) }}
-
-    {% endif %}
 {% endblock %}
 
 {% block javascripts %}

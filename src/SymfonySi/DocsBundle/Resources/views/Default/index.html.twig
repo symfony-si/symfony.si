@@ -1,10 +1,8 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% trans %}Documentation{% endtrans %}{% endblock %}
+{% block title %}Documentation{% endblock %}
 
 {% block body %}
-
-{% if app.request.locale == 'en' %}
     <h1>Slovenian Symfony documentation</h1>
 
     <p>Symfony framework is famous also for having a very good documentation. There is available also slovenian translation of the documentation, where you can join and help us with translations.</p>
@@ -12,30 +10,12 @@
     <p>Why translating this large and always changing documentation is actually a good idea? It helps us to have a common terminology and it is a great way to keep up with the latest changes in Symfony.</p>
     
     <p>We have started translating documentation in October 2013 for the Symfony 2.4 version.</p>
-
-{% else %}
-
-    <h1>Slovenska Symfony dokumentacija</h1>
-
-    <p>Symfony ogrodje je znano tudi po zelo dobri dokumentaciji. Na voljo je tudi slovenski prevod dokumentacije, kjer se lahko pridružite in pomagate pri prevajanju.</p>
-
-    <p>Zakaj je prevajanje te obsežne in vedno spreminjajoče se dokumentacije dobra ideja? Pomaga nam imeti skupno terminologijo in je odličen način, da sledimo zadnjim spremembam v Symfony-ju.</p>
-
-    <p>Prevajati smo pričeli v oktobru 2013 za Symfony 2.4 verzijo.</p>
-
-    <p><a class="btn btn-lg btn-success" href="{{ path('symfony_si_docs_show', {'page': 'index.html'}) }}">Slovenska dokumentacija</a></p>
-
-{% endif %}
-
-
 {% endblock %}
 
 {% block sidebar %}
-    {% if app.request.locale == "sl" %}
-        {{ include(
-            'SymfonySiDocsBundle:Default:sidebar.html.twig'
-        ) }}
-    {% endif %}
+    {{ include(
+        'SymfonySiDocsBundle:Default:sidebar.html.twig'
+    ) }}
 {% endblock %}
 
 {% block javascripts %}

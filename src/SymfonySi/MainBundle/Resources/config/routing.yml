@@ -1,48 +1,32 @@
 symfony_si_main_homepage:
-    pattern:  /{_locale}
-    defaults: { _controller: SymfonySiMainBundle:Default:index, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern:  /
+    defaults: { _controller: SymfonySiMainBundle:Default:index }
 
 symfony_si_main_copyright:
-    pattern: /{_locale}/copyrights
-    defaults: { _controller: SymfonySiMainBundle:Default:copyright, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern: /copyrights
+    defaults: { _controller: SymfonySiMainBundle:Default:copyright }
 
 symfony_si_main_join:
-    pattern: /{_locale}/join-us
-    defaults: { _controller: SymfonySiMainBundle:Default:join, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern: /join-us
+    defaults: { _controller: SymfonySiMainBundle:Default:join }
 
 symfony_si_main_contact:
-    pattern: /{_locale}/contact
-    defaults: { _controller: SymfonySiMainBundle:Default:contact, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern: /contact
+    defaults: { _controller: SymfonySiMainBundle:Default:contact }
 
 symfony_si_main_contact_success:
-    pattern: /{_locale}/contact-succeeded
-    defaults: { _controller: SymfonySiMainBundle:Default:contactSuccess, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern: /contact-succeeded
+    defaults: { _controller: SymfonySiMainBundle:Default:contactSuccess }
 
 symfony_si_main_contributors:
-    pattern:  /{_locale}/contributors
-    defaults: { _controller: SymfonySiMainBundle:Default:contributors, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern:  /contributors
+    defaults: { _controller: SymfonySiMainBundle:Default:contributors }
 
 symfony_si_main_links:
-    pattern:  /{_locale}/links
-    defaults: { _controller: SymfonySiMainBundle:Default:links, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern:  /links
+    defaults: { _controller: SymfonySiMainBundle:Default:links }
 
 symfony_si_main_twitter:
-    pattern:  /{_locale}/twitter
-    defaults: { _controller: SymfonySiMainBundle:Default:twitter, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern:  /twitter
+    defaults: { _controller: SymfonySiMainBundle:Default:twitter }
 

@@ -1,8 +1,3 @@
 symfony_si_ecosystem_homepage:
-    path:     /{_locale}/ecosystem
-    defaults: { _controller: SymfonySiEcosystemBundle:Default:index,  _locale: sl }
-    requirements:
-        _locale: sl|en
-        year: \d+
-        month: \d+
-        day: \d+
+    path:     /ecosystem
+    defaults: { _controller: SymfonySiEcosystemBundle:Default:index }

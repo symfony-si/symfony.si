@@ -42,25 +42,18 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li {% if app.request.get('_route') == 'symfony_si_main_homepage' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_main_homepage', {'_locale': app.request.locale}) }}">{% trans %}Home{% endtrans %}</a>
-                        </li>
                         <li {% if app.request.get('_route') == 'symfony_si_main_join' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_main_join', {'_locale': app.request.locale}) }}">{% trans %}Join us{% endtrans %}</a>
+                            <a href="{{ path('symfony_si_main_join') }}">Join us</a>
                         </li>
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_blog' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_blog_homepage', {'_locale': app.request.locale}) }}">Blog</a>
+                            <a href="{{ path('symfony_si_blog_homepage') }}">Blog</a>
                         </li>
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_docs' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_docs_homepage', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a>
+                            <a href="{{ path('symfony_si_docs_homepage') }}">SI Documentation</a>
                         </li>
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_ecosystem' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_ecosystem_homepage', {'_locale': app.request.locale}) }}">{% trans %}Ecosystem{% endtrans %}</a>
+                            <a href="{{ path('symfony_si_ecosystem_homepage') }}">Ecosystem</a>
                         </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li{% if app.request.locale == 'sl' %} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'sl'}) }}">Slovenian</a></li>
-                        <li{% if app.request.locale == 'en'%} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'en'}) }}">English</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -74,7 +67,7 @@
                     <div class="col-md-3">
                         <div class="sidebar">
                             <h2>SensioLabs Connect Club:</h2>
-                            <p><a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">{% trans %}Join us{% endtrans %}</a></p>
+                            <p><a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">Join us</a></p>
                             {% block sidebar %}{% endblock %}
                             <a class="twitter-timeline" href="https://twitter.com/symfonysi" data-widget-id="565644083893661696">Tweets by @symfonysi</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -88,10 +81,10 @@
             <div class="container">
                 <p class="text-muted credit">
                     <a href="{{ path('symfony_si_main_copyright') }}">Symfony.si - Symfony Slovenia</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="http://symfony.com" target="_blank">{% trans %}Symfony.com official page{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_contact', {'_locale': app.request.locale}) }}">{% trans %}Contact us{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_links', {'_locale': app.request.locale}) }}">{% trans %}Useful links{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_contributors') }}">{% trans %}Contributors{% endtrans %}</a>
+                    <a href="http://symfony.com" target="_blank">Symfony.com official page</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_main_contact') }}">Contact us</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_main_links') }}">Useful links</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_main_contributors') }}">Contributors</a>
                 </p>
             </div>
         </div>

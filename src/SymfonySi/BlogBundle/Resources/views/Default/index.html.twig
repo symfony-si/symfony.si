@@ -10,7 +10,6 @@
 
         <p>{{ post.intro }} <a href="{{ path(
             'symfony_si_blog_show', {
-                '_locale': app.request.locale,
                 'year': post.created|date("Y"),
                 'month': post.created|date("m"),
                 'day': post.created|date("d"),

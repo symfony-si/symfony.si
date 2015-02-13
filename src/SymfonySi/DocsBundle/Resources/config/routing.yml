@@ -1,13 +1,10 @@
 symfony_si_docs_homepage:
-    pattern:  /{_locale}/documentation
-    defaults: { _controller: SymfonySiDocsBundle:Default:index, _locale: 'sl' }
-    requirements:
-        _locale: sl|en
+    pattern:  /documentation
+    defaults: { _controller: SymfonySiDocsBundle:Default:index }
 
 symfony_si_docs_show:
-    pattern: /{_locale}/documentation/current/{page}
-    defaults: { _controller: SymfonySiDocsBundle:Default:show, _locale: 'sl' }
+    pattern: /documentation/current/{page}
+    defaults: { _controller: SymfonySiDocsBundle:Default:show }
     requirements:
-        _locale: sl|en
         page: ".+"
 

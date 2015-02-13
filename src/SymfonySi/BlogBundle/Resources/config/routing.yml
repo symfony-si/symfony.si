@@ -1,14 +1,11 @@
 symfony_si_blog_homepage:
-    pattern:  /{_locale}/blog
-    defaults: { _controller: SymfonySiBlogBundle:Default:index, _locale: sl }
-    requirements:
-        _locale: sl|en
+    pattern:  /blog
+    defaults: { _controller: SymfonySiBlogBundle:Default:index }
 
 symfony_si_blog_show:
-    pattern: /{_locale}/blog/{year}/{month}/{day}/{slug}
-    defaults: { _controller: SymfonySiBlogBundle:Default:show, _locale: sl }
+    pattern: /blog/{year}/{month}/{day}/{slug}
+    defaults: { _controller: SymfonySiBlogBundle:Default:show }
     requirements:
-        _locale: sl|en
         year: \d+
         month: \d+
         day: \d+

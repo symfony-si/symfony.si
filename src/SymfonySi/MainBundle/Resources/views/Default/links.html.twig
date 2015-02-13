@@ -1,39 +1,20 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% trans %}Useful links{% endtrans %}{% endblock%}
+{% block title %}Useful links{% endblock%}
 
 {% block body %}
-    {% if app.request.locale == 'en' %}
-        <h1>Useful links</h1>
+    <h1>Useful links</h1>
 
-        <ul>
-            <li><a href="http://symfony.com">Symfony.com</a> - official Symfony page</li>
-            <li><a href="http://knpbundles.com">Knp Bundles</a> - Symfony2 Bundles</li>
-        </ul>
+    <ul>
+        <li><a href="http://symfony.com">Symfony.com</a> - official Symfony page</li>
+        <li><a href="http://knpbundles.com">Knp Bundles</a> - Symfony2 Bundles</li>
+    </ul>
 
-        <h2>Local communities around the world</h2>
+    <h2>Local communities around the world</h2>
 
-        <ul>
-            <li><a href="http://symfony.am">Symfony Armenia</a></li>
-            <li><a href="http://symfony-austria.org">Symfony Austria</a></li>
-            <li><a href="http://symfony.it">Symfony Italy</a></li>
-        </ul>
-
-    {% else %}
-        <h1>Koristne povezave</h1>
-        
-        <ul>
-            <li><a href="http://symfony.com">Symfony.com</a> - uradna Symfony stran</li>
-            <li><a href="http://knpbundles.com">Knp Bundles</a> - Symfony2 paketi</li>
-        </ul>
-
-        <h2>Lokalne skupnosti po svetu</h2>
-
-        <ul>
-            <li><a href="http://symfony.am">Symfony Armenia</a></li>
-            <li><a href="http://symfony-austria.org">Symfony Avstrija</a></li>
-            <li><a href="http://symfony.it">Symfony Italija</a></li>
-        </ul>
-    {% endif %}
-
+    <ul>
+        <li><a href="http://symfony.am">Symfony Armenia</a></li>
+        <li><a href="http://symfony-austria.org">Symfony Austria</a></li>
+        <li><a href="http://symfony.it">Symfony Italy</a></li>
+    </ul>
 {% endblock %}

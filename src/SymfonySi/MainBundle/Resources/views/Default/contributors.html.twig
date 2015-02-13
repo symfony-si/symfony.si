@@ -1,19 +1,12 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% trans %}Contributors{% endtrans%}{% endblock %}
+{% block title %}Contributors{% endblock %}
 
 {% block body %}
-    {% if app.request.locale == 'en' %}
-        <h1>Symfony.si Contributors</h1>
 
-        <p>Symfony.si project was generously contributed by:</p>
+    <h1>Symfony.si Contributors</h1>
 
-    {% else %}
-        <h1>Prispevki Symfony.si</h1>
-
-        <p>Symfony.si so radodarno prispevali:</p>
-
-	{% endif %}
+    <p>Symfony.si project was generously contributed by:</p>
 
     <ul>
         {% for contributor in contributors %}

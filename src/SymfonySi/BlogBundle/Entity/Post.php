@@ -3,13 +3,12 @@ namespace SymfonySi\BlogBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Translatable\Translatable;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="post")
  */
-class Post implements Translatable
+class Post
 {
     /**
      * @ORM\Column(type="integer")
@@ -19,20 +18,17 @@ class Post implements Translatable
     protected $id;
 
     /**
-     * @Gedmo\Translatable
      * @ORM\Column(type="string", length=100)
      */
     private $title;
 
     
     /**
-     * @Gedmo\Translatable
      * @ORM\Column(type="text")
      */
     private $intro;
 
     /**
-     * @Gedmo\Translatable
      * @ORM\Column(type="text")
      */
     private $content;
@@ -57,13 +53,6 @@ class Post implements Translatable
      * @ORM\Column(type="datetime")
      */
     private $updated;
-
-    /**
-     * @Gedmo\Locale
-     * Used locale to override Translation listener`s locale
-     * this is not a mapped field of entity metadata, just a simple property
-    */
-    private $locale;
 
     /**
      * Get id
@@ -175,17 +164,5 @@ class Post implements Translatable
     public function getUpdated()
     {
         return $this->updated;
-    }
-
-    /**
-     * Set locale
-     *
-     * @return Post
-     */
-    public function setTranslatableLocale($locale)
-    {
-        $this->locale = $locale;
-
-        return $this;
     }
 }

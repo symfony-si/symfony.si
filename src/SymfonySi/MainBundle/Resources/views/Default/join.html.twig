@@ -1,42 +1,23 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% trans %}Join us{% endtrans %}{% endblock%}
+{% block title %}Join us{% endblock%}
 
 {% block body %}
-    {% if app.request.locale == 'en' %}
-        <h1>Join us</h1>
 
-        <p>Symfony.si is also Slovenian Symfony user group and community. If you are a PHP developer, Symfony user or just exploring Symfony framework consider joining our community as well.</p>
+    <h1>Join us</h1>
 
-        <h2>SensioLabs Connect Slovenia Club</h2>
+    <p>Symfony.si is also Slovenian Symfony user group and community. If you are a PHP developer, Symfony user or just exploring Symfony framework consider joining our community as well.</p>
 
-        <p>SensioLabs Connect is a developer social network. Join the community, create your developer profile and start earning achievements for community.</p>
+    <h2>SensioLabs Connect Slovenia Club</h2>
 
-        <p>Join our <a href="https://connect.sensiolabs.com/club/slovenia">Symfony Slovenia club</a> for connecting Slovenian Symfony and PHP users and developers.</p>
-        
-        <h2>GitHub</h2>
+    <p>SensioLabs Connect is a developer social network. Join the community, create your developer profile and start earning achievements for community.</p>
 
-        <p>Site Symfony.si and slovenian version of documentation is available also on GitHub:</p>
+    <p>Join our <a href="https://connect.sensiolabs.com/club/slovenia">Symfony Slovenia club</a> for connecting Slovenian Symfony and PHP users and developers.</p>
 
-        <p><a href="https://github.com/symfony-si/symfony.si">github.com/symfony-si/symfony.si</a></p>
+    <h2>GitHub</h2>
 
-    {% else %}
-        <h1>Pridružite se</h1>
-        
-        <p>Symfony.si je tudi slovenska Symfony uporabniška skupina in skupnost. Če ste PHP razvijalec, Symfony uporabnik ali samo raziskujete Symfony ogrodje, premislite tudi o pridružitvi naši skupnosti.</p>
+    <p>Site Symfony.si and slovenian version of documentation is available also on GitHub:</p>
 
-        <h2>SensioLabs Connect Slovenia Club</h2>
-
-        <p>SensioLabs Connect je razvijalsko socialno omrežje. Pridružite se skupnosti, ustvarite vaš razvijalski profil in pričnite služiti dosežke za skupnost.</p>
-
-        <p>Pridružite se našemu <a href="https://connect.sensiolabs.com/club/slovenia">Symfony Slovenia klubu</a> za povezovanje slovenskih Symfony in PHP uporabnikov in razvijalcev.</p>
-
-        <h2>GitHub</h2>
-
-        <p>Stran Symfony.si in slovenska verzija dokumentacije je na voljo tudi na GitHub-u:</p>
-
-        <p><a href="https://github.com/symfony-si/symfony.si">github.com/symfony-si/symfony.si</a></p>
-
-    {% endif %}
+    <p><a href="https://github.com/symfony-si/symfony.si">github.com/symfony-si/symfony.si</a></p>
 
 {% endblock %}

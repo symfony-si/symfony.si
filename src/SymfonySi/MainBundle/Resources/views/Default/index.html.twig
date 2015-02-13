@@ -1,87 +1,41 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    {% if app.request.locale == 'en' %}
-        <h1>Welcome to Symfony.si.</h1>
 
-        <p>Symfony is a PHP Framework, a Philosophy, and a Community - all working together in harmony.</p>
+    <h1>Welcome to Symfony.si</h1>
 
-        <p>Symfony.si is a slovenian community, local Symfony user group and blog about Symfony and PHP, where you can join and find other Slovenian Symfony users and find some interesting information about Symfony as well.</p>
+    <p>Symfony is a PHP Framework, a Philosophy, and a Community - all working together in harmony.</p>
 
-        <p>For official Symfony home, please visit <a href="http://symfony.com">symfony.com</a> website.</p>
-        
-        <p>Join us on <a href="https://connect.sensiolabs.com/club/slovenia">SensioLabs Connect</a>.</p>
-        
+    <p>Symfony.si is a slovenian community, local Symfony user group and blog about Symfony and PHP, where you can join and find other Slovenian Symfony users and find some interesting information about Symfony as well.</p>
 
-        <p>Similar local communities: <a href="http://symfony-austria.org">Symfony Austria</a>, <a href="http://symfony.am">Symfony Armenia</a>, <a href="http://symfony.it">Symfony Italia</a>, <a href="http://symfony.es">Symfony Spain</a>, <a href="http://symfony.se">Symfony Sweden</a> and many others.</p>
+    <p>For official Symfony home, please visit <a href="http://symfony.com">symfony.com</a> website.</p>
 
-    {% else %}
-        <h1>Dobrodošli na Symfony.si</h1>
-        
-        <p>Symfony je PHP ogrodje, filozofija in skupnost, kjer vse deluje skupaj v harmoniji.</p>
+    <p>Join us on <a href="https://connect.sensiolabs.com/club/slovenia">SensioLabs Connect</a>.</p>
 
-        <p>Symfony.si je slovenska skupnost, lokalna Symfony uporabniška skupina in blog o Symfony in PHP, kjer se lahko pridružite in najdete ostale slovenske Symfony uporabnike ter tudi najdete nekatere zanimive informacije o Symfony.</p>
+    <p>Similar local communities: <a href="http://symfony-austria.org">Symfony Austria</a>, <a href="http://symfony.am">Symfony Armenia</a>, <a href="http://symfony.it">Symfony Italia</a>, <a href="http://symfony.es">Symfony Spain</a>, <a href="http://symfony.se">Symfony Sweden</a> and many others.</p>
 
-        <p>Za uraden Symfony dom, prosimo, obiščite <a href="http://symfony.com">symfony.com</a> spletno stran.</p>
+    <h2>Latest Symfony.si posts:</h2>
 
-        <p>Pridružite se nam na <a href="https://connect.sensiolabs.com/club/slovenia">SensioLabs Connect</a>.</p>
-
-
-        <p>Podobne lokalne skupnosti: <a href="http://symfony-austria.org">Symfony Austria</a>, <a href="http://symfony.am">Symfony Armenia</a>, <a href="http://symfony.it">Symfony Italia</a>, <a href="http://symfony.es">Symfony Spain</a>, <a href="http://symfony.se">Symfony Sweden</a> in mnoge ostale.</p>
-
-    {% endif %}
+    <ul>
+        {% for post in posts %}
+            <li><a href="{{ path('symfony_si_blog_show', {
+                    'year': post.created|date("Y"),
+                    'month': post.created|date("m"),
+                    'day': post.created|date("d"),
+                    'slug': post.slug
+                }) }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
 {% block sidebar %}
-    {% if app.request.locale == 'en' %}
-    
-        <h2>Latest Symfony.si posts:</h2>
+    <h2>Latest bundles:</h2>
 
-        <ul>
-            {% for post in posts %}
-                <li><a href="{{ path('symfony_si_blog_show', {
-                    '_locale': app.request.locale,
-                    'year': post.created|date("Y"),
-                    'month': post.created|date("m"),
-                    'day': post.created|date("d"),
-                    'slug': post.slug
-                    }) }}">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
+    <p>Source: <a href="http://knpbundles.com">knpbundles.com</a></p>
 
-        <h2>Latest bundles:</h2>
-        
-        <p>Source: <a href="http://knpbundles.com">knpbundles.com</a></p>
-        
-        <ul>
-            {% for bundle in bundles %}
-                <li><a href="{{ bundle.url }}" target="_blank">{{ bundle.name }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        
-        <h2>Zadnje objave na Symfony.si:</h2>
-        
-        <ul>
-            {% for post in posts %}
-                <li><a href="{{ path('symfony_si_blog_show', {
-                    '_locale': app.request.locale,
-                    'year': post.created|date("Y"),
-                    'month': post.created|date("m"),
-                    'day': post.created|date("d"),
-                    'slug': post.slug
-                    }) }}">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
-
-        <h2>Zadnji paketi:</h2>
-        
-        <p>Vir: <a href="http://knpbundles.com">knpbundles.com</a></p>
-        
-        <ul>
-            {% for bundle in bundles %}
-                <li><a href="{{ bundle.url }}" target="_blank">{{ bundle.name }}</a></li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    <ul>
+        {% for bundle in bundles %}
+            <li><a href="{{ bundle.url }}" target="_blank">{{ bundle.name }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
