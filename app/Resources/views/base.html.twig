@@ -12,6 +12,9 @@
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 
+        <!-- Font Awesome - iconic font and toolkit -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
         <!-- Custom styles for this template -->
         <link href="{{ asset('css/site.css') }}" rel="stylesheet">
 
@@ -51,6 +54,9 @@
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_docs' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_docs_homepage', {'_locale': app.request.locale}) }}">{% trans %}Documentation{% endtrans %}</a>
                         </li>
+                        <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_ecosystem' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_ecosystem_homepage', {'_locale': app.request.locale}) }}">{% trans %}Ecosystem{% endtrans %}</a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li{% if app.request.locale == 'sl' %} class="active"{% endif %}><a href="{{ path('symfony_si_main_homepage', {'_locale': 'sl'}) }}">Slovenian</a></li>
@@ -81,9 +87,8 @@
         <div id="footer">
             <div class="container">
                 <p class="text-muted credit">
-                    Symfony.si - Symfony Slovenia &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_main_copyright') }}">Symfony.si - Symfony Slovenia</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="http://symfony.com" target="_blank">{% trans %}Symfony.com official page{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_copyright') }}">{% trans %}Copyrights{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="{{ path('symfony_si_main_contact', {'_locale': app.request.locale}) }}">{% trans %}Contact us{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="{{ path('symfony_si_main_links', {'_locale': app.request.locale}) }}">{% trans %}Useful links{% endtrans %}</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="{{ path('symfony_si_main_contributors') }}">{% trans %}Contributors{% endtrans %}</a>

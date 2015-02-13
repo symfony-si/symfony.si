@@ -1,3 +1,11 @@
+symfony_si_cheatsheet:
+    resource: "@SymfonySiCheatsheetBundle/Resources/config/routing.yml"
+    prefix:   /
+
+symfony_si_ecosystem:
+    resource: "@SymfonySiEcosystemBundle/Resources/config/routing.yml"
+    prefix:   /
+
 symfony_si_docs:
     resource: "@SymfonySiDocsBundle/Resources/config/routing.yml"
     prefix:   /

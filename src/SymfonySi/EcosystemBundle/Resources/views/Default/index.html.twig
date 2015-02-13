@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Ecosystem{% endblock %}
+
+{% block body %}
+    <h1>Ekosistem</h1>
+
+    <p>Tu je zbran pregled slovenskih prevodov ekosistema Symfony skupaj s širšim PHP in ostalim odprtokodnim ekosistemom, ki je pomemben za Symfony slovenske uporabnike in razvijalce. Prevode poganja in pogosto preverja za posodobitvami sistem Symfony.si.</p>
+
+    <table class="table table-striped">
+        <tr>
+            <th width="180px">Prevod</th>
+            <th>Opis</th>
+            <th align="center">Repozitorij</th>
+            <th align="center">Status</th>
+        </tr>
+
+        {% for project in projects %}
+            <tr>
+                <td><a href="{{ project.link }}">{{ project.title }}</a></td>
+                <td>{{ project.description }}</td>
+                <td align="center"><a href="{{ project.repository }}"><i class="fa fa-github fa-lg"></a></i></td>
+                <td align="center" style="color:green"><i class="fa fa-smile-o fa-lg"></i></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

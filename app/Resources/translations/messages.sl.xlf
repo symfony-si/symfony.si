@@ -30,6 +30,10 @@
                 <source>Useful links</source>
                 <target>Koristne povezave</target>
             </trans-unit>
+            <trans-unit id="ecosystem">
+                <source>Ecosystem</source>
+                <target>Ekosistem</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
