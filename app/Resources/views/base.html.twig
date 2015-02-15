@@ -57,9 +57,6 @@
                         <li {% if app.request.get('_route') == 'symfony_si_main_resources' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_main_resources') }}">Resources</a>
                         </li>
-                        <li {% if app.request.get('_route') == 'symfony_si_cheatsheet' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_cheatsheet_homepage') }}">Cheatsheet</a>
-                        </li>
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_docs' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_docs_homepage') }}">SI documentation</a>
                         </li>
