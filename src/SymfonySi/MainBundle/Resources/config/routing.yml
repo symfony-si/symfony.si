@@ -22,11 +22,7 @@ symfony_si_main_contributors:
     pattern:  /contributors
     defaults: { _controller: SymfonySiMainBundle:Default:contributors }
 
-symfony_si_main_links:
-    pattern:  /links
-    defaults: { _controller: SymfonySiMainBundle:Default:links }
-
-symfony_si_main_twitter:
-    pattern:  /twitter
-    defaults: { _controller: SymfonySiMainBundle:Default:twitter }
+symfony_si_main_resources:
+    pattern:  /resources
+    defaults: { _controller: SymfonySiMainBundle:Default:resources }
 

@@ -12,7 +12,7 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
     header('HTTP/1.0 403 Forbidden');
     exit('This script is only accessible from localhost.');
 }
- */
+*/
 
 require_once dirname(__FILE__).'/../var/SymfonyRequirements.php';
 

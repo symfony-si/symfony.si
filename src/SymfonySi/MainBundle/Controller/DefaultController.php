@@ -112,13 +112,12 @@ class DefaultController extends Controller
         ));
     }
 
-    public function linksAction()
+    public function resourcesAction()
     {
-        return $this->render('SymfonySiMainBundle:Default:links.html.twig');
-    }
+        $file = __DIR__.'/../../../../resources/README.md';
+        $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony resources</h1>';
+        $html = $this->container->get('markdown.parser')->transformMarkdown($content);
 
-    public function twitterAction()
-    {
-        return $this->render('SymfonySiMainBundle:Default:twitter.html.twig');
+        return $this->render('SymfonySiMainBundle:Default:resources.html.twig', array('html' => $html));
     }
 }

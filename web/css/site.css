@@ -3,7 +3,7 @@ body {
     height: 100%;
     padding-top: 25px;
     /* The html and body elements cannot have any padding or margin. */
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .navbar-nav li a {
@@ -32,7 +32,7 @@ body {
     border-top: 1px solid #eee;
     margin-top: 15px;
     padding: 15px 0px 40px 0px;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 

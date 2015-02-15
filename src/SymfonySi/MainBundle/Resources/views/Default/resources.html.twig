@@ -1,20 +1,7 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Useful links{% endblock%}
+{% block title %}Useful Symfony resources{% endblock%}
 
 {% block body %}
-    <h1>Useful links</h1>
-
-    <ul>
-        <li><a href="http://symfony.com">Symfony.com</a> - official Symfony page</li>
-        <li><a href="http://knpbundles.com">Knp Bundles</a> - Symfony2 Bundles</li>
-    </ul>
-
-    <h2>Local communities around the world</h2>
-
-    <ul>
-        <li><a href="http://symfony.am">Symfony Armenia</a></li>
-        <li><a href="http://symfony-austria.org">Symfony Austria</a></li>
-        <li><a href="http://symfony.it">Symfony Italy</a></li>
-    </ul>
+    {{ html|raw }}
 {% endblock %}

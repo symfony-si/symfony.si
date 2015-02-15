@@ -2,15 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Symfony and PHP local user group">
+        <meta name="author" content="Symfony Slovenia">
+        <meta property="og:title" content="Symfony and PHP local user group">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="http://symfony.si">
+        <meta property="og:image" content="http://symfony.si/images/header.jpg">
+        <meta property="og:description" content="Symfony and PHP local user group">
+        <meta property="og:site_name" content="Symfony Slovenia">
+
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
         <title>{% block title %}Symfony.si - Slovenian Symfony User Group{% endblock %}</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- Font Awesome - iconic font and toolkit -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -18,14 +25,14 @@
         <!-- Custom styles for this template -->
         <link href="{{ asset('css/site.css') }}" rel="stylesheet">
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
-            <script src="/assets/js/html5shiv.js"></script>
-            <script src="/assets/js/respond.min.js"></script>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
         {% block stylesheets %}{% endblock %}
-        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script>
+        <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script>
     </head>
     <body>
         {{ include('google.html.twig') }}
@@ -44,21 +51,21 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li {% if app.request.get('_route') == 'symfony_si_main_join' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_main_join') }}">Join us</a>
-                        </li>
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_blog' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_blog_homepage') }}">Blog</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'symfony_si_main_resources' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_main_resources') }}">Resources</a>
+                        </li>
+                        <li {% if app.request.get('_route') == 'symfony_si_cheatsheet' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_cheatsheet_homepage') }}">Cheatsheet</a>
                         </li>
                         <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_docs' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_docs_homepage') }}">SI documentation</a>
                         </li>
-                        <li {% if app.request.get('_route')|slice(0,20) == 'symfony_si_ecosystem' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_ecosystem_homepage') }}">Ecosystem</a>
-                        </li>
                     </ul>
                     <form class="navbar-form navbar-right">
-                        <a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">SensioLabs Connect</a>
+                        <a href="https://connect.sensiolabs.com/club/slovenia" class="btn btn-lg btn-success btn-block">Join us</a>
                     </form>
                 </div>
             </div>
@@ -86,8 +93,8 @@
                     <a href="{{ path('symfony_si_main_copyright') }}">Symfony.si - Symfony Slovenia</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="http://symfony.com" target="_blank">Symfony.com official page</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="{{ path('symfony_si_main_contact') }}">Contact us</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_links') }}">Useful links</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_contributors') }}">Contributors</a>
+                    <a href="{{ path('symfony_si_main_join') }}">Join us</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('symfony_si_ecosystem_homepage') }}">SI ecosystem</a>
                 </p>
             </div>
         </div>
