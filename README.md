@@ -32,7 +32,7 @@ Application is built with Symfony PHP framework (obviously) and is using Symfony
 You can fork this project and send pull requests. Local installation can be done by the following procedure:
 
 ```bash
-$ git clone git@github.com:your_username/symfony.si
+$ git clone git@github.com:your_username/symfony.si --recursive
 $ cd symfony.si
 $ curl -s https://getcomposer.org/installer |php
 $ php composer.phar install
