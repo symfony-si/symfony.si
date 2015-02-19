@@ -85,25 +85,29 @@ class DefaultController extends Controller
 
     public function contributorsAction()
     {
-        $srcContributors = json_decode(file_get_contents('https://api.github.com/repos/symfony-si/symfony.si/contributors'), true);
-        $docsContributors = json_decode(file_get_contents('https://api.github.com/repos/symfony-si/symfony-docs-sl/contributors'), true);
+        $cache = $this->get('kernel')->getRootDir().'/../var/cache/github-api-cache';
+        $client = new \Github\Client(
+            new \Github\HttpClient\CachedHttpClient(array('cache_dir' => $cache))
+        );
+        $srcContributors = $client->api('repo')->contributors('symfony-si', 'symfony.si');
+        $docsContributors = $client->api('repo')->contributors('symfony-si', 'symfony-docs-sl');
         $contributors = array();
 
         foreach($srcContributors as $key=>$contributor) {
-            $jsonData = json_decode(file_get_contents('https://api.github.com/users/' . $contributor['login']), true);
+            $user = $client->api('user')->show($contributor['login']);
             $contributors[$contributor['login']] = array(
-                'name'       => ($jsonData['name']) ? $jsonData['name'] : $contributor['login'],
-                'html_url'   => $contributor['html_url'],
-                'avatar_url' => $contributor['avatar_url'],
+                'name'       => ($user['name']) ? $user['name'] : $contributor['login'],
+                'html_url'   => $user['html_url'],
+                'avatar_url' => $user['avatar_url'],
             );
         }
 
         foreach($docsContributors as $key=>$contributor) {
-            $jsonData = json_decode(file_get_contents('https://api.github.com/users/' . $contributor['login']), true);
+            $user = $client->api('user')->show($contributor['login']);
             $contributors[$contributor['login']] = array(
-                'name'       => ($jsonData['name']) ? $jsonData['name'] : $contributor['login'],
-                'html_url'   => $contributor['html_url'],
-                'avatar_url' => $contributor['avatar_url'],
+                'name'       => ($user['name']) ? $user['name'] : $contributor['login'],
+                'html_url'   => $user['html_url'],
+                'avatar_url' => $user['avatar_url'],
             );
         }
 

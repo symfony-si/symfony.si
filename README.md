@@ -6,13 +6,7 @@
 
 ## About
 
-Welcome to the Symfony Slovenia project. You probably wonder why is this project located in a separate
-repository and why a special seperate dedicated page for a PHP framework and community?
-Symfony is a framework, community, a philosophy and more all working together in harmony and we believe
-that it deserves special attention for that matter so we've decided to make a website specially for a
-Slovenian Symfony community as well.
-
-Inspired by Symfony Italia, Symfony Armenia, Symfony Spain and many others here is Symfony Slovenia as well.
+Welcome to the Symfony Slovenia project. Inspired by many others similar local user groups here is Symfony Slovenia as well.
 
 Symfony.si project aims to provide useful information to users of Symfony PHP framework and connect them with Slovenian Symfony users.
 We respect that Symfony is a trademark of Fabien Potencier so this website is about community and is more of an introduction to
@@ -25,33 +19,45 @@ Project is open source and we encourage new and existing users of Symfony to con
 If you're excited about Symfony as we are and would like to contribute to this project as well please check
 [contributing document](CONTRIBUTING.md).
 
-
 ## Installation
 
 Application is built with Symfony PHP framework (obviously) and is using Symfony Standard Edition.
-You can fork this project and send pull requests. Local installation can be done by the following procedure:
+You can fork this project and send pull requests if you found some bug or have an idea for improvement.
+
+We assume you have a [Composer](https://getcomposer.org) already installed globally on your system:
+
+```bash
+$ curl -s https://getcomposer.org/installer | php
+$ sudo mv composer.phar /usr/local/bin/composer
+```
+
+Local installation of Symfony.si application can be than done by the following procedure:
 
 ```bash
 $ git clone git@github.com:your_username/symfony.si --recursive
 $ cd symfony.si
-$ curl -s https://getcomposer.org/installer |php
-$ php composer.phar install
+$ composer install
 $ php bin/console assets:install
 $ php bin/console doctrine:database:create
 $ php bin/console doctrine:schema:update --force
 $ php bin/console doctrine:fixtures:load
 ```
 
-After this you should get a working symfony.si website on your local computer. Documentation section (doc folder in the root of application)
-is mainly built with [Sphinx](http://sphinx-doc.org). Building documentation requires python Docutils and Sphinx installed and is not needed
-for your installation. For building documentation locally use the following procedure:
+After this you should get a working symfony.si website on your local computer.
+
+### Documentation installation (optional)
+
+The `doc` folder in the root of application contains resources for building Slovenian translation of Symfony documentation.
+Symfony documentation is generated with [Sphinx](http://sphinx-doc.org). Building documentation locally requires python
+Docutils and Sphinx installed however it is not needed for running your local installation.
+
+For building documentation locally use the following procedure:
 
 ```bash
-$ git clone git://github.com/symfony-si/symfony-docs-sl.git doc/sources
-$ php app/console docs:generate --update-sources
+$ php bin/console docs:generate --update-sources
 ```
 
 ## License
 
-Symfony is a registered trademark of Fabien Potencier. Symfony.si website only promotes Symfony framework and community
-in Slovenia area. Source code of symfony.si application is released under [MIT License](LICENSE).
+Symfony is a registered trademark of Fabien Potencier. Symfony.si website only promotes Symfony framework and community.
+Source code of symfony.si application is released under [MIT License](LICENSE).

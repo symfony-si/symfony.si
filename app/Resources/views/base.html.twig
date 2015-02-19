@@ -57,8 +57,8 @@
                         <li {% if app.request.get('_route') == 'symfony_si_main_resources' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_main_resources') }}">Resources</a>
                         </li>
-                        <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_docs' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_docs_homepage') }}">SI documentation</a>
+                        <li {% if app.request.get('_route') == 'symfony_si_cheatsheet_homepage' %} class="active"{% endif %}>
+                            <a href="{{ path('symfony_si_cheatsheet_homepage') }}">Cheat sheet</a>
                         </li>
                     </ul>
                     <form class="navbar-form navbar-right">
@@ -75,24 +75,47 @@
                 <div class="col-md-9">{% block body %}{% endblock %}</div>
                     <div class="col-md-3">
                         <div class="sidebar">
-                            {% block sidebar %}{% endblock %}
-                            <a class="twitter-timeline" href="https://twitter.com/symfonysi" data-widget-id="565644083893661696">Tweets by @symfonysi</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                            {% block sidebar %}
+                                <a class="twitter-timeline" href="https://twitter.com/symfonysi" data-widget-id="565644083893661696">Tweets by @symfonysi</a>
+                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
             </div>
         </div><!-- /.container -->
 
-        <div id="footer">
+        <div id="footer" class="text-muted credit">
             <div class="container">
-                <p class="text-muted credit">
-                    <a href="{{ path('symfony_si_main_copyright') }}">Symfony.si - Symfony Slovenia</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="http://symfony.com" target="_blank">Symfony.com official page</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_contact') }}">Contact us</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_main_join') }}">Join us</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="{{ path('symfony_si_ecosystem_homepage') }}">SI ecosystem</a>
-                </p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1><small>About</small></h1>
+                        <ul>
+                            <li><a href="{{ path('symfony_si_main_copyright') }}">Symfony.si - Symfony Slovenia</a></li>
+                            <li><a href="http://symfony.com" target="_blank">Symfony.com official page</a></li>
+                            <li><a href="{{ path('symfony_si_main_contact') }}">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h1><small>SI resources</small></h1>
+                        <ul>
+                            <li><a href="{{ path('symfony_si_ecosystem_homepage') }}">SI ecosystem</a></li>
+                            <li><a href="{{ path('symfony_si_docs_homepage') }}">SI documentation</a></li>
+                            <li><a href="http://sl.phptherightway.com">PHP: The Right Way</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h1><small>Get involved</small></h1>
+                        <ul>
+                            <li><a href="{{ path('symfony_si_main_join') }}">Join us</a></li>
+                            <li><a href="{{ path('symfony_si_main_contributors') }}">Contributors</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h1><small>Built with <i style="color:red;" class="fa fa-heart fa-lg"></i></small></h1>
+                        Powered by <img src="{{ asset('images/symfonyLogo.png') }}">
+                    </div>
+                </div>
             </div>
         </div>
 

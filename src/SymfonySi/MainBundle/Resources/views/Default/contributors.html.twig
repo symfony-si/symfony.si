@@ -4,15 +4,13 @@
 
 {% block body %}
 
-    <h1>Symfony.si Contributors</h1>
+    <h1>Symfony.si contributors</h1>
 
     <p>Symfony.si project was generously contributed by:</p>
 
-    <ul>
-        {% for contributor in contributors %}
-            <li><a href="{{ contributor.html_url }}"><img src="{{ contributor.avatar_url }}" /> {{ contributor.name }}</a></li>
-        {% endfor %}
-    <ul>
+    {% for contributor in contributors %}
+        <div class="pull-left contributor"><a href="{{ contributor.html_url }}"><img src="{{ contributor.avatar_url }}" width="100" alt="{{ contributor.name }}" class="img-rounded"><br>{{ contributor.name }}</a></div>
+    {% endfor %}
 
 {% endblock %}
 

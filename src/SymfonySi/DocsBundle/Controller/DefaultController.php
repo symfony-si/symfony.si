@@ -8,12 +8,21 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SymfonySiDocsBundle:Default:index.html.twig');
+        $file = $this->get('kernel')->getRootDir().'/../web/doc/current/index.html';
+
+        if(file_exists($file) && substr($file, -5) == '.html') {
+            $content = file_get_contents($file);
+        } else {
+            $content = "";
+        }
+
+        return $this->render('SymfonySiDocsBundle:Default:index.html.twig', array('content' => $content));
     }
 
     public function showAction($page)
     {
-        $file = $this->getRequest()->server->get('DOCUMENT_ROOT') . '/doc/current/' . $page;
+        $file = $this->get('kernel')->getRootDir().'/../web/doc/current/'.$page;
+        //$file = $this->getRequest()->server->get('DOCUMENT_ROOT') . '/doc/current/' . $page;
 
         if(file_exists($file) && substr($file, -5) == '.html') {
             $content = file_get_contents($file);

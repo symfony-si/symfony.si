@@ -85,6 +85,51 @@ class LoadProjectData implements FixtureInterface
         $manager->persist($project_8);
         $manager->flush();
 
+        $project_9 = new Project();
+        $project_9->setTitle('The PHP League');
+        $project_9->setDescription('Slovenski prevod strani PHP lige paketov');
+        $project_9->setLink('http://thephpleague.com/sl/');
+        $project_9->setRepository('https://github.com/thephpleague/thephpleague.github.io');
+        $project_9->setSlug('the-php-league');
+        $manager->persist($project_9);
+        $manager->flush();
+
+        $project_10 = new Project();
+        $project_10->setTitle('Yii framework');
+        $project_10->setDescription('Slovenski prevod ogrodja Yii 2');
+        $project_10->setLink('https://github.com/yiisoft/yii2');
+        $project_10->setRepository('https://github.com/yiisoft/yii2');
+        $project_10->setSlug('the-php-league');
+        $manager->persist($project_10);
+        $manager->flush();
+
+        $project_11 = new Project();
+        $project_11->setTitle('Bootstrap');
+        $project_11->setDescription('Slovenski prevod Bootstrap');
+        $project_11->setLink('http://symfony.si/bootstrap');
+        $project_11->setRepository('https://github.com/symfony-si/bootstrap');
+        $project_11->setSlug('bootstrap');
+        $manager->persist($project_11);
+        $manager->flush();
+
+        $project_12 = new Project();
+        $project_12->setTitle('Progit');
+        $project_12->setDescription('Slovenski prevod knjige progit');
+        $project_12->setLink('http://git-scm.com/book/sl');
+        $project_12->setRepository('https://github.com/progit/progit2-sl');
+        $project_12->setSlug('progit');
+        $manager->persist($project_12);
+        $manager->flush();
+
+        $project_13 = new Project();
+        $project_13->setTitle('Zend Framework 2');
+        $project_13->setDescription('Slovenian translation of Zend Framework 2');
+        $project_13->setLink('https://github.com/zendframework/zf2');
+        $project_13->setRepository('https://github.com/zendframework/zf2');
+        $project_13->setSlug('zend-framework-2');
+        $manager->persist($project_13);
+        $manager->flush();
+
     }
 }
 

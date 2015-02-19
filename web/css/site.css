@@ -27,15 +27,6 @@ body {
     padding: 0 0 60px;
 }
 
-/* Set the fixed height of the footer here */
-#footer {
-    border-top: 1px solid #eee;
-    margin-top: 15px;
-    padding: 15px 0px 40px 0px;
-    font-size: 13px;
-}
-
-
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
@@ -69,4 +60,26 @@ code {
 
 .sidebar h2 {
     font-size: 20px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+    padding: 10px 0px 30px 0px;
+    font-size: 13px;
+}
+
+.powered {
+    font-size: 18px;
+    padding-top: 20px;
+}
+
+.contributor {
+    text-align: center;
+    margin: 15px;
+}
+
+blockquote.warning {
+    border-color: red;
 }
