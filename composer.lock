@@ -48,16 +48,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.4",
+            "version": "v1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "b5202eb9e83f8db52e0e58867e0a46e63be8332e"
+                "reference": "f4a91702ca3cd2e568c3736aa031ed00c3752af4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b5202eb9e83f8db52e0e58867e0a46e63be8332e",
-                "reference": "b5202eb9e83f8db52e0e58867e0a46e63be8332e",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f4a91702ca3cd2e568c3736aa031ed00c3752af4",
+                "reference": "f4a91702ca3cd2e568c3736aa031ed00c3752af4",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-12-23 22:40:37"
+            "time": "2015-06-17 12:21:22"
         },
         {
             "name": "doctrine/cache",
@@ -1166,16 +1166,16 @@
         },
         {
             "name": "knplabs/github-api",
-            "version": "1.4.11",
+            "version": "1.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "346761bf33ec3af686d304e679d4729f36b0a943"
+                "reference": "ccf5e49a2454c1b102333586d80ce67012b5080f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/346761bf33ec3af686d304e679d4729f36b0a943",
-                "reference": "346761bf33ec3af686d304e679d4729f36b0a943",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/ccf5e49a2454c1b102333586d80ce67012b5080f",
+                "reference": "ccf5e49a2454c1b102333586d80ce67012b5080f",
                 "shasum": ""
             },
             "require": {
@@ -1223,7 +1223,7 @@
                 "gist",
                 "github"
             ],
-            "time": "2015-05-26 06:11:50"
+            "time": "2015-06-17 08:02:22"
         },
         {
             "name": "knplabs/knp-markdown-bundle",
