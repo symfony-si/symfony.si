@@ -45,6 +45,20 @@ $ php bin/console doctrine:fixtures:load
 
 After this you should get a working symfony.si website on your local computer.
 
+## Upgrading, updating
+
+Updating dependencies:
+
+```bash
+$ composer update
+```
+
+When you want to update local repository
+
+```bash
+$ git pull --recursive-submodules --rebase
+```
+
 ### Documentation installation (optional)
 
 The `doc` folder in the root of application contains resources for building Slovenian translation of Symfony documentation.
