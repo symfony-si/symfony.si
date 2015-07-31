@@ -56,7 +56,7 @@ $ composer update
 When you want to update local repository
 
 ```bash
-$ git pull --recursive-submodules --rebase
+$ git pull --recurse-submodules --rebase
 ```
 
 ### Documentation installation (optional)
