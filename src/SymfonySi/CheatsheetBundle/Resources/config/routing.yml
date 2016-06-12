@@ -1,3 +1,0 @@
-symfony_si_cheatsheet_homepage:
-    path:     /cheatsheet
-    defaults: { _controller: SymfonySiCheatsheetBundle:Default:index }

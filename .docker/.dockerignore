@@ -1,0 +1,4 @@
+/.docker/.data/
+.dockerignore
+docker-compose.yml
+Dockerfile

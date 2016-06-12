@@ -2,10 +2,15 @@
 
 namespace SymfonySi\BlogBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
+    /**
+     * @Route("/blog", name="symfony_si_blog_homepage")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction()
     {
         $posts = $this->getDoctrine()
@@ -14,10 +19,19 @@ class DefaultController extends Controller
         
         return $this->render(
             'SymfonySiBlogBundle:Default:index.html.twig',
-            array('posts' => $posts)
+            ['posts' => $posts]
         );
     }
 
+    /**
+     * @Route("/blog/{year}/{month}/{day}/{slug}", name="symfony_si_blog_show", requirements={
+     *     "year": "\d+",
+     *     "month": "\d+",
+     *     "day": "\d+"
+     * })
+     * @param $slug
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function showAction($slug)
     {
         $post = $this->getDoctrine()
@@ -33,7 +47,7 @@ class DefaultController extends Controller
 
         return $this->render(
             'SymfonySiBlogBundle:Default:show.html.twig',
-            array('post' => $post)
+            ['post' => $post]
         );
 
     }

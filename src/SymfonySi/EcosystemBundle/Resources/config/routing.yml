@@ -1,3 +1,0 @@
-symfony_si_ecosystem_homepage:
-    path:     /ecosystem
-    defaults: { _controller: SymfonySiEcosystemBundle:Default:index }

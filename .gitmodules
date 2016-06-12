@@ -1,9 +1,6 @@
 [submodule "resources"]
 	path = resources
 	url = git://github.com/symfony-si/symfony-resources
-[submodule "doc/sources"]
-	path = doc/sources
-	url = git://github.com/symfony-si/symfony-docs-sl
 [submodule "cheatsheet"]
 	path = cheatsheet
 	url = git://github.com/symfony-si/symfony-cheatsheet

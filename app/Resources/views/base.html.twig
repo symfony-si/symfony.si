@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ path('symfony_si_main_homepage') }}" title="Symfony.si"><img src="{{ asset('images/logo.png') }}" alt="Symfony.si"></a>
+                    <a class="navbar-brand" href="{{ path('homepage') }}" title="Symfony.si"><img src="{{ asset('images/logo.png') }}" alt="Symfony.si"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -56,7 +56,7 @@
                             <a href="{{ path('symfony_si_blog_homepage') }}">Blog</a>
                         </li>
                         <li {% if app.request.get('_route') == 'symfony_si_main_resources' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_main_resources') }}">Resources</a>
+                            <a href="{{ path('resources') }}">Resources</a>
                         </li>
                         <li {% if app.request.get('_route') == 'symfony_si_cheatsheet_homepage' %} class="active"{% endif %}>
                             <a href="{{ path('symfony_si_cheatsheet_homepage') }}">Cheat sheet</a>
@@ -92,24 +92,23 @@
                     <div class="col-md-3">
                         <h1><small>About</small></h1>
                         <ul>
-                            <li><a href="{{ path('symfony_si_main_copyright') }}">Symfony.si - Symfony Slovenia</a></li>
+                            <li><a href="{{ path('copyrights') }}">Symfony.si - Symfony Slovenia</a></li>
                             <li><a href="http://symfony.com" target="_blank">Symfony.com official page</a></li>
-                            <li><a href="{{ path('symfony_si_main_contact') }}">Contact us</a></li>
+                            <li><a href="{{ path('contact') }}">Contact us</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <h1><small>SI resources</small></h1>
                         <ul>
                             <li><a href="{{ path('symfony_si_ecosystem_homepage') }}">SI ecosystem</a></li>
-                            <li><a href="{{ path('symfony_si_docs_homepage') }}">SI documentation</a></li>
                             <li><a href="http://sl.phptherightway.com">PHP: The Right Way</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <h1><small>Get involved</small></h1>
                         <ul>
-                            <li><a href="{{ path('symfony_si_main_join') }}">Join us</a></li>
-                            <li><a href="{{ path('symfony_si_main_contributors') }}">Contributors</a></li>
+                            <li><a href="{{ path('join') }}">Join us</a></li>
+                            <li><a href="{{ path('contributors') }}">Contributors</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">

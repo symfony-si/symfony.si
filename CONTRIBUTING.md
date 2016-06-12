@@ -1,10 +1,25 @@
-# Contributing to symfony.si
+# Contributing Guide
 
-We love contributors and people willing to help out!
+We love contributors and people willing to help out.
 
 ## About
 
-Please check [README](README.md) file for information about Symfony Slovenia project and how to install the application locally.
+Please check [README](README.md) file for information about Symfony Slovenia
+project and how to install the application locally.
+
+## Upgrading, updating
+
+Updating dependencies:
+
+```bash
+composer update
+```
+
+When you want to update local repository
+
+```bash
+$ git pull --recurse-submodules --rebase
+```
 
 ## How you can get involved?
 
@@ -16,11 +31,10 @@ You can help us improve, create and promote this community in the following ways
 
 ## Coding standards
 
-Symfony.si code should follow [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html).
+Contributed code must follow [PSR-1](http://www.php-fig.org/psr/psr-1/),
+[PSR-2](http://www.php-fig.org/psr/psr-2/) and
+[Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html).
 
-## Reward
-
-Every commit to sources or documentation gets you listed on our contributors hall of fame [page](http://symfony.si/sl/contributors).
 
 ## License
 

@@ -1,77 +1,65 @@
 # Symfony.si
 
-[![Build Status](https://secure.travis-ci.org/symfony-si/symfony.si.png?branch=master)](http://travis-ci.org/symfony-si/symfony.si)
+[![Build Status](https://img.shields.io/travis/symfony-si/symfony.si/master.svg?style=flat-square)](https://travis-ci.org/symfony-si/symfony.si)
+[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/symfony-si/symfony.si.svg?style=flat-square)](https://scrutinizer-ci.com/g/symfony-si/symfony.si/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/symfony-si/symfony.si.svg?style=flat-square)](https://scrutinizer-ci.com/g/symfony-si/symfony.si)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3d099459-fdfc-475e-a8a6-a5515429161c/big.png)](https://insight.sensiolabs.com/projects/3d099459-fdfc-475e-a8a6-a5515429161c)
 
-## About
+Welcome to the Symfony Slovenia project. Inspired by many others Symfony and PHP
+local user groups, here is Symfony Slovenia as well.
 
-Welcome to the Symfony Slovenia project. Inspired by many others similar local user groups here is Symfony Slovenia as well.
+Symfony.si project aims to provide useful information for Symfony users.
 
-Symfony.si project aims to provide useful information to users of Symfony PHP framework and connect them with Slovenian Symfony users.
-We respect that Symfony is a trademark of Fabien Potencier so this website is about community and is more of an introduction to
-the official Symfony framework and [website](http://symfony.com).
+## Local Installation
 
-Project is open source and we encourage new and existing users of Symfony to contribute and get involved in the project.
+Application is built with Symfony PHP framework (obviously) and is using Symfony
+Standard Edition. You can fork this project and send pull requests if you found
+some bug or have an idea for improvement.
 
-## Contributing
-
-If you're excited about Symfony as we are and would like to contribute to this project as well please check
-[contributing document](CONTRIBUTING.md).
-
-## Installation
-
-Application is built with Symfony PHP framework (obviously) and is using Symfony Standard Edition.
-You can fork this project and send pull requests if you found some bug or have an idea for improvement.
-
-We assume you have a [Composer](https://getcomposer.org) already installed globally on your system:
+Fork Symfony.si project, clone it and install dependencies with
+[Composer](https://getcomposer.org):
 
 ```bash
-$ curl -s https://getcomposer.org/installer | php
-$ sudo mv composer.phar /usr/local/bin/composer
+git clone git@github.com:your_username/symfony.si --recursive
+cd symfony.si
+composer install
+bin/console doctrine:database:create
+bin/console doctrine:schema:update --force
+bin/console doctrine:fixtures:load
 ```
 
-Local installation of Symfony.si application can be than done by the following procedure:
+After this you should get a working symfony.si website on your development machine.
+
+Docker users can use provided [Docker files](.docker) to get up and running fast:
 
 ```bash
-$ git clone git@github.com:your_username/symfony.si --recursive
-$ cd symfony.si
-$ composer install
-$ php bin/console assets:install
-$ php bin/console doctrine:database:create
-$ php bin/console doctrine:schema:update --force
-$ php bin/console doctrine:fixtures:load
+docker-compose -f .docker/docker-compose.yml up --force-recreate -d
+docker exec -it <container_name> zsh
+cd /var/www/symfony.si/
+composer install
+bin/console assetic:dump
+bin/console doctrine:schema:update --force
+bin/console doctrine:fixtures:load
 ```
 
-After this you should get a working symfony.si website on your local computer.
-
-## Upgrading, updating
-
-Updating dependencies:
+Point IP od Docker container to symfony.si.dev:
 
 ```bash
-$ composer update
+docker inspect <container_name> | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
+echo "XXX.XX.X.X symfony.si.dev" | sudo tee -a /etc/hosts
 ```
 
-When you want to update local repository
+## License and Contributing
 
-```bash
-$ git pull --recurse-submodules --rebase
-```
+If you're as excited about Symfony as we are and would like to contribute to this
+project as well please check the [contributing document](CONTRIBUTING.md).
 
-### Documentation installation (optional)
-
-The `doc` folder in the root of application contains resources for building Slovenian translation of Symfony documentation.
-Symfony documentation is generated with [Sphinx](http://sphinx-doc.org). Building documentation locally requires python
-Docutils and Sphinx installed however it is not needed for running your local installation.
-
-For building documentation locally use the following procedure:
-
-```bash
-$ php bin/console docs:generate --update-sources
-```
-
-## License
-
-Symfony is a registered trademark of Fabien Potencier. Symfony.si website only promotes Symfony framework and community.
-Source code of symfony.si application is released under [MIT License](LICENSE).
+We respect that Symfony is a registered trademark of Fabien Potencier. This website
+is about all about Symfony, PHP and open source. It is more of an introduction to
+the official [Symfony project](http://symfony.com). Symfony.si website only promotes
+Symfony and is not endorsed by Fabien Potencier. Source code of symfony.si
+application is released under MIT License. Content is released Creative Commons
+Attribution 4.0 International License. For more info see the [LICENSE](LICENSE)
+file.

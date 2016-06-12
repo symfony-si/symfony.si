@@ -1,19 +1,15 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
 symfony_si_cheatsheet:
-    resource: "@SymfonySiCheatsheetBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@SymfonySiCheatsheetBundle/Controller/"
+    type:     annotation
 
 symfony_si_ecosystem:
-    resource: "@SymfonySiEcosystemBundle/Resources/config/routing.yml"
-    prefix:   /
-
-symfony_si_docs:
-    resource: "@SymfonySiDocsBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@SymfonySiEcosystemBundle/Controller/"
+    type:     annotation
 
 symfony_si_blog:
-    resource: "@SymfonySiBlogBundle/Resources/config/routing.yml"
-    prefix:   /
-
-symfony_si_main:
-    resource: "@SymfonySiMainBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@SymfonySiBlogBundle/Controller/"
+    type:     annotation
