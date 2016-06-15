@@ -1,10 +1,10 @@
 <?php
 
-namespace SymfonySi\EcosystemBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use SymfonySi\EcosystemBundle\Entity\Project;
+use AppBundle\Entity\Project;
 
 class LoadProjectData implements FixtureInterface
 {
@@ -132,4 +132,3 @@ class LoadProjectData implements FixtureInterface
 
     }
 }
-

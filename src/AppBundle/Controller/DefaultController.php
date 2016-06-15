@@ -177,4 +177,20 @@ class DefaultController extends Controller
 
         return $this->render('default/cheatsheet.html.twig', ['html' => $html]);
     }
+
+    /**
+     * @Route("/ecosystem", name="ecosystem")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function ecosystemAction()
+    {
+        $projects = $this->getDoctrine()
+            ->getRepository('AppBundle:Project')
+            ->findAll();
+
+        return $this->render(
+            'default/ecosystem.html.twig',
+            ['projects' => $projects]
+        );
+    }
 }

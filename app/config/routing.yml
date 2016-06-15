@@ -2,14 +2,6 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-symfony_si_cheatsheet:
-    resource: "@SymfonySiCheatsheetBundle/Controller/"
-    type:     annotation
-
-symfony_si_ecosystem:
-    resource: "@SymfonySiEcosystemBundle/Controller/"
-    type:     annotation
-
 symfony_si_blog:
     resource: "@SymfonySiBlogBundle/Controller/"
     type:     annotation

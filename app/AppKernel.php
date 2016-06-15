@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new AppBundle\AppBundle(),
             new SymfonySi\BlogBundle\SymfonySiBlogBundle(),
-            new SymfonySi\EcosystemBundle\SymfonySiEcosystemBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
