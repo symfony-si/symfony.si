@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Contact;
+use League\CommonMark\CommonMarkConverter;
 
 class DefaultController extends Controller
 {
@@ -160,5 +161,20 @@ class DefaultController extends Controller
         $html = $this->container->get('markdown.parser')->transformMarkdown($content);
 
         return $this->render('default/resources.html.twig', ['html' => $html]);
+    }
+
+    /**
+     * @Route("/cheatsheet", name="cheatsheet")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function cheatsheetAction()
+    {
+        $file = __DIR__.'/../../../cheatsheet/README.md';
+        $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony cheat sheet</h1>';
+
+        $converter = new CommonMarkConverter();
+        $html = $converter->convertToHtml($content);
+
+        return $this->render('default/cheatsheet.html.twig', ['html' => $html]);
     }
 }

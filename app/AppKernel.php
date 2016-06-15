@@ -21,7 +21,6 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new SymfonySi\BlogBundle\SymfonySiBlogBundle(),
             new SymfonySi\EcosystemBundle\SymfonySiEcosystemBundle(),
-            new SymfonySi\CheatsheetBundle\SymfonySiCheatsheetBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
