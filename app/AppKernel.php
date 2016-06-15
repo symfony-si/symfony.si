@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new AppBundle\AppBundle(),
-            new SymfonySi\BlogBundle\SymfonySiBlogBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {

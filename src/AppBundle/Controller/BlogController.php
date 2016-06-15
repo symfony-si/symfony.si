@@ -1,30 +1,30 @@
 <?php
 
-namespace SymfonySi\BlogBundle\Controller;
+namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class BlogController extends Controller
 {
     /**
-     * @Route("/blog", name="symfony_si_blog_homepage")
+     * @Route("/blog", name="blog_homepage")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
         $posts = $this->getDoctrine()
-            ->getRepository('SymfonySiBlogBundle:Post')
+            ->getRepository('AppBundle:Post')
             ->findAll();
         
         return $this->render(
-            'SymfonySiBlogBundle:Default:index.html.twig',
+            'blog/index.html.twig',
             ['posts' => $posts]
         );
     }
 
     /**
-     * @Route("/blog/{year}/{month}/{day}/{slug}", name="symfony_si_blog_show", requirements={
+     * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_show", requirements={
      *     "year": "\d+",
      *     "month": "\d+",
      *     "day": "\d+"
@@ -35,7 +35,7 @@ class DefaultController extends Controller
     public function showAction($slug)
     {
         $post = $this->getDoctrine()
-            ->getRepository('SymfonySiBlogBundle:Post')
+            ->getRepository('AppBundle:Post')
             ->findOneBySlug($slug);
         $em = $this->getDoctrine()->getManager();
 
@@ -46,7 +46,7 @@ class DefaultController extends Controller
         }
 
         return $this->render(
-            'SymfonySiBlogBundle:Default:show.html.twig',
+            'blog/show.html.twig',
             ['post' => $post]
         );
 

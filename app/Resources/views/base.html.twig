@@ -52,14 +52,14 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li {% if app.request.get('_route')|slice(0,15) == 'symfony_si_blog' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_blog_homepage') }}">Blog</a>
+                        <li {% if app.request.get('_route')|slice(0,15) == 'blog' %} class="active"{% endif %}>
+                            <a href="{{ path('blog_homepage') }}">Blog</a>
                         </li>
-                        <li {% if app.request.get('_route') == 'symfony_si_main_resources' %} class="active"{% endif %}>
+                        <li {% if app.request.get('_route') == 'resources' %} class="active"{% endif %}>
                             <a href="{{ path('resources') }}">Resources</a>
                         </li>
-                        <li {% if app.request.get('_route') == 'symfony_si_cheatsheet_homepage' %} class="active"{% endif %}>
-                            <a href="{{ path('symfony_si_cheatsheet_homepage') }}">Cheat sheet</a>
+                        <li {% if app.request.get('_route') == 'cheatsheet' %} class="active"{% endif %}>
+                            <a href="{{ path('cheatsheet') }}">Cheat sheet</a>
                         </li>
                     </ul>
                     <form class="navbar-form navbar-right">
@@ -100,7 +100,7 @@
                     <div class="col-md-3">
                         <h1><small>SI resources</small></h1>
                         <ul>
-                            <li><a href="{{ path('symfony_si_ecosystem_homepage') }}">SI ecosystem</a></li>
+                            <li><a href="{{ path('ecosystem') }}">SI ecosystem</a></li>
                             <li><a href="http://sl.phptherightway.com">PHP: The Right Way</a></li>
                         </ul>
                     </div>

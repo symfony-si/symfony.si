@@ -9,7 +9,7 @@
         <h2><span class="label label-default">{{ post.created|date("Y-m-d") }}</span> {{ post.title }}</h2>
 
         <p>{{ post.intro }} <a href="{{ path(
-            'symfony_si_blog_show', {
+            'blog_show', {
                 'year': post.created|date("Y"),
                 'month': post.created|date("m"),
                 'day': post.created|date("d"),

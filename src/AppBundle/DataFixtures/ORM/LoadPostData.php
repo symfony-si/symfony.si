@@ -1,10 +1,10 @@
 <?php
 
-namespace SymfonySi\BlogBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use SymfonySi\BlogBundle\Entity\Post;
+use AppBundle\Entity\Post;
 
 class LoadPostData implements FixtureInterface
 {
