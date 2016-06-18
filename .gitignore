@@ -15,3 +15,7 @@
 /vendor/
 /web/bundles/
 /.docker/.data/
+/node_modules/
+/bower_components/
+/web/css/
+/web/js/

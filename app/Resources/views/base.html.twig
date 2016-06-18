@@ -2,13 +2,14 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Symfony and PHP local user group">
         <meta name="author" content="Symfony Slovenia">
         <meta property="og:title" content="Symfony and PHP local user group">
         <meta property="og:type" content="article">
-        <meta property="og:url" content="http://symfony.si">
-        <meta property="og:image" content="http://symfony.si/images/header.png">
+        <meta property="og:url" content="https://symfony.si">
+        <meta property="og:image" content="https://symfony.si/images/header.png">
         <meta property="og:description" content="Symfony and PHP local user group">
         <meta property="og:site_name" content="Symfony Slovenia">
 
@@ -16,24 +17,16 @@
 
         <title>{% block title %}Symfony.si - Slovenian Symfony User Group{% endblock %}</title>
 
-        <!-- Bootstrap core CSS -->
-        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-        <!-- Font Awesome - iconic font and toolkit -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-        <!-- Custom styles for this template -->
-        <link href="{{ asset('css/site.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/prism.css') }}" rel="stylesheet">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {% endblock %}
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-        {% block stylesheets %}{% endblock %}
-        <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script>
     </head>
     <body>
         {{ include('google.html.twig') }}
@@ -119,12 +112,8 @@
             </div>
         </div>
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ asset('js/jquery.js') }}"></script>
-        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/prism.js') }}"></script>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/app.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

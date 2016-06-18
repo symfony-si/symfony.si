@@ -3,6 +3,7 @@
     "license": "MIT",
     "type": "project",
     "description": "Slovenian Symfony user group application",
+    "keywords": ["symfony", "php", "project", "group"],
     "homepage": "https://symfony.si",
     "authors": [
         {
@@ -43,7 +44,8 @@
         "knplabs/knp-markdown-bundle": "^1.5",
         "knplabs/github-api": "^1.7",
         "league/commonmark": "^0.13.3",
-        "symfony/assetic-bundle": "^2.8"
+        "php-pm/php-pm": "dev-master",
+        "php-pm/httpkernel-adapter": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -78,5 +80,7 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

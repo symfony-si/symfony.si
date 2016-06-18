@@ -11,15 +11,18 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Contact;
 use League\CommonMark\CommonMarkConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+
 
 class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @Cache(expires="tomorrow", public=true)
      */
     public function indexAction(Request $request)
     {
-        $repository = $this->getDoctrine()->getRepository('SymfonySiBlogBundle:Post');
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Post');
 
         $q = $repository->createQueryBuilder('p')
             ->orderBy('p.created', 'DESC')

@@ -32,14 +32,17 @@ bin/console doctrine:fixtures:load
 
 After this you should get a working symfony.si website on your development machine.
 
+### Docker Installation
+
 Docker users can use provided [Docker files](.docker) to get up and running fast:
 
 ```bash
+git clone git@github.com:symfony-si/symfony.si --recursive
+cd symfony.si
 docker-compose -f .docker/docker-compose.yml up --force-recreate -d
 docker exec -it <container_name> zsh
 cd /var/www/symfony.si/
 composer install
-bin/console assetic:dump
 bin/console doctrine:schema:update --force
 bin/console doctrine:fixtures:load
 ```
@@ -49,6 +52,17 @@ Point IP od Docker container to symfony.si.dev:
 ```bash
 docker inspect <container_name> | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
 echo "XXX.XX.X.X symfony.si.dev" | sudo tee -a /etc/hosts
+```
+
+### Assets
+
+Assets (CSS, JavaScript and images) are handled with [Gulp](http://gulpjs.com/).
+
+```bash
+$ npm install
+$ gulp --production
+# or in development
+$ gulp
 ```
 
 ## License and Contributing

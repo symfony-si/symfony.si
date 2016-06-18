@@ -12,6 +12,9 @@ All notable changes to this project will be documented in this file. This projec
 * Upgrade to Symfony 3.1
 * Remove Slovenian translation of documentation
 * Docker for local development
+* Single AppBundle project structure
+* Gulp for managing web assets
+* [PHP-PM](https://github.com/php-pm)
 * ...
 
 

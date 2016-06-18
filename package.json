@@ -1,0 +1,33 @@
+{
+  "name": "symfony-si",
+  "version": "1.0.0",
+  "description": "Slovenian Symfony user group application",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/symfony-si/symfony.si.git"
+  },
+  "author": "Peter Kokot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/symfony-si/symfony.si/issues"
+  },
+  "homepage": "https://github.com/symfony-si/symfony.si#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^2.0.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7"
+  }
+}
