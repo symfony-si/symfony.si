@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Contact;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfony\Component\HttpFoundation\Response;
-use Mni\FrontYAML\Parser;
 use AppBundle\Entity\Project;
 
 class DefaultController extends Controller
@@ -168,10 +167,8 @@ class DefaultController extends Controller
     {
         $file = $this->get('kernel')->getRootDir().'/../vendor/symfony-si/symfony-resources/README.md';
         $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony resources</h1>';
-        $parser = new Parser();
-        $document = $parser->parse($content);
 
-        return $this->render('default/resources.html.twig', ['html' => $document->getContent()]);
+        return $this->render('default/resources.html.twig', ['html' => $content]);
     }
 
     /**
@@ -182,10 +179,8 @@ class DefaultController extends Controller
     {
         $file = $this->get('kernel')->getRootDir().'/../vendor/symfony-si/symfony-cheatsheet/README.md';
         $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony cheat sheet</h1>';
-        $parser = new Parser();
-        $document = $parser->parse($content);
 
-        return $this->render('default/cheatsheet.html.twig', ['html' => $document->getContent()]);
+        return $this->render('default/cheatsheet.html.twig', ['html' => $content]);
     }
 
     /**
@@ -315,9 +310,7 @@ class DefaultController extends Controller
     {
         $file = $this->get('kernel')->getRootDir().'/../vendor/symfony-si/conduct/README.md';
         $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony.si Code of Conduct</h1>';
-        $parser = new Parser();
-        $document = $parser->parse($content);
 
-        return $this->render('default/conduct.html.twig', ['content' => $document->getContent()]);
+        return $this->render('default/conduct.html.twig', ['content' => $content]);
     }
 }
