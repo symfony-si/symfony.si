@@ -3,11 +3,12 @@
 {% block title %}Blog{% endblock %}
 
 {% block body %}
-    <h1>Blog - {{ post.title }}</h1>
+
+    <h1>{{ post.title }}</h1>
+    <p><em>{{ post.created|date("Y-m-d") }}</em></p>
 
     <blockquote><p>{{ post.intro }}</p></blockquote>
 
     <p>{{ post.content|raw }}</p>
-
 
 {% endblock %}

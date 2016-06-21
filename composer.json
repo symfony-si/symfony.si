@@ -39,18 +39,55 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "doctrine/doctrine-migrations-bundle": "^1.0",
-        "stof/doctrine-extensions-bundle": "^1.2",
-        "knplabs/knp-markdown-bundle": "^1.5",
         "knplabs/github-api": "^1.7",
-        "league/commonmark": "^0.13.3",
         "php-pm/php-pm": "dev-master",
-        "php-pm/httpkernel-adapter": "dev-master"
+        "php-pm/httpkernel-adapter": "dev-master",
+        "mnapoli/front-yaml": "^1.5",
+        "symfony-si/symfony-cheatsheet": "*",
+        "symfony-si/symfony-resources": "*",
+        "symfony-si/fig-standards-sl": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0",
-        "doctrine/doctrine-fixtures-bundle": "^2.3"
+        "symfony/phpunit-bridge": "^3.0"
+    },
+    "repositories": {
+        "cheatsheet": {
+            "type": "package",
+            "package": {
+                "name": "symfony-si/symfony-cheatsheet",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/symfony-si/symfony-cheatsheet",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        "resources": {
+            "type": "package",
+            "package": {
+                "name": "symfony-si/symfony-resources",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/symfony-si/symfony-resources",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        "psrs": {
+            "type": "package",
+            "package": {
+                "name": "symfony-si/fig-standards-sl",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/symfony-si/fig-standards-sl",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
     },
     "scripts": {
         "post-install-cmd": [

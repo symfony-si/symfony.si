@@ -8,11 +8,13 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Contact;
-use League\CommonMark\CommonMarkConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-
+use Symfony\Component\HttpFoundation\Response;
+use Mni\FrontYAML\Parser;
+use AppBundle\Entity\Project;
 
 class DefaultController extends Controller
 {
@@ -20,16 +22,9 @@ class DefaultController extends Controller
      * @Route("/", name="homepage")
      * @Cache(expires="tomorrow", public=true)
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Post');
-
-        $q = $repository->createQueryBuilder('p')
-            ->orderBy('p.created', 'DESC')
-            ->setMaxResults(10)
-            ->getQuery();
-
-        $posts = $q->getResult();
+        $posts = $this->get('app.repository.post')->findLatest();
 
         $jsonData = json_decode(file_get_contents('http://knpbundles.com/newest.json'), true);
 
@@ -42,7 +37,7 @@ class DefaultController extends Controller
     /**
      * @Route("/copyrights", name="copyrights")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function copyrightAction(Request $request)
     {
@@ -52,7 +47,7 @@ class DefaultController extends Controller
     /**
      * @Route("/join-us", name="join")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function joinAction(Request $request)
     {
@@ -61,8 +56,10 @@ class DefaultController extends Controller
 
     /**
      * @Route("/contact", name="contact")
+     * @Cache(maxage="20", public=true)
+     *
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return RedirectResponse|Response
      */
     public function contactAction(Request $request)
     {
@@ -86,11 +83,11 @@ class DefaultController extends Controller
                 ->setBody(
                     $this->renderView(
                         'emails/email.txt.twig',
-                        array(
+                        [
                             'name' => $contact->getName(),
                             'email' => $contact->getEmail(),
                             'message' => $contact->getMessage()
-                        )
+                        ]
                     )
                 )
             ;
@@ -107,7 +104,7 @@ class DefaultController extends Controller
     /**
      * @Route("/contact-succeeded", name="contact_success")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function contactSuccessAction(Request $request)
     {
@@ -117,7 +114,7 @@ class DefaultController extends Controller
     /**
      * @Route("/contributors", name="contributors")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function contributorsAction(Request $request)
     {
@@ -155,41 +152,142 @@ class DefaultController extends Controller
     /**
      * @Route("/resources", name="resources")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function resourcesAction(Request $request)
     {
-        $file = __DIR__.'/../../../resources/README.md';
+        $file = $this->get('kernel')->getRootDir().'/../vendor/symfony-si/symfony-resources/README.md';
         $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony resources</h1>';
-        $html = $this->container->get('markdown.parser')->transformMarkdown($content);
+        $parser = new Parser();
+        $document = $parser->parse($content);
 
-        return $this->render('default/resources.html.twig', ['html' => $html]);
+        return $this->render('default/resources.html.twig', ['html' => $document->getContent()]);
     }
 
     /**
      * @Route("/cheatsheet", name="cheatsheet")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function cheatsheetAction()
     {
-        $file = __DIR__.'/../../../cheatsheet/README.md';
+        $file = $this->get('kernel')->getRootDir().'/../vendor/symfony-si/symfony-cheatsheet/README.md';
         $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony cheat sheet</h1>';
+        $parser = new Parser();
+        $document = $parser->parse($content);
 
-        $converter = new CommonMarkConverter();
-        $html = $converter->convertToHtml($content);
-
-        return $this->render('default/cheatsheet.html.twig', ['html' => $html]);
+        return $this->render('default/cheatsheet.html.twig', ['html' => $document->getContent()]);
     }
 
     /**
      * @Route("/ecosystem", name="ecosystem")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function ecosystemAction()
     {
-        $projects = $this->getDoctrine()
-            ->getRepository('AppBundle:Project')
-            ->findAll();
+        $projects = [];
+        $project = new Project();
+        $project->setTitle('Symfony Framework');
+        $project->setDescription('Prevod ogrodja Symfony');
+        $project->setLink('https://github.com/symfony/symfony');
+        $project->setRepository('https://github.com/symfony/symfony');
+        $project->setSlug('symfony');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Symfony.com');
+        $project->setDescription('Symfony.com website');
+        $project->setLink('https://github.com/symfony/symfony-marketing');
+        $project->setRepository('https://github.com/symfony/symfony-marketing');
+        $project->setSlug('symfony-marketing');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Sonata Project');
+        $project->setDescription('Prevod projekta Sonata Project');
+        $project->setLink('https://github.com/sonata-project');
+        $project->setRepository('https://github.com/sonata-project');
+        $project->setSlug('sonata-project');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('EasyAdminBundle');
+        $project->setDescription('Prevod Symfony paketa EasyAdminBundle');
+        $project->setLink('https://github.com/javiereguiluz/EasyAdminBundle');
+        $project->setRepository('https://github.com/javiereguiluz/EasyAdminBundle');
+        $project->setSlug('easy-admin-bundle');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('PHP: The Right Way');
+        $project->setDescription('An easy-to-read, quick reference for PHP best practices, accepted coding standards, and links to authoritative tutorials around the Web');
+        $project->setLink('http://sl.phptherightway.com');
+        $project->setRepository('https://github.com/symfony-si/php-the-right-way');
+        $project->setSlug('php-the-right-way');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('PHP FIG');
+        $project->setDescription('PHP Standards Recommendations');
+        $project->setLink('http://php-fig.org');
+        $project->setRepository('https://github.com/php-fig/fig-standards');
+        $project->setSlug('php-fig-standards');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Magento');
+        $project->setDescription('Magento 1.x Translation');
+        $project->setLink('http://magento.com/');
+        $project->setRepository('https://github.com/symfony-si/magento1-sl-si');
+        $project->setSlug('magento1');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Magento 2');
+        $project->setDescription('Magento 2.x Translation');
+        $project->setLink('http://magento.com/');
+        $project->setRepository('https://github.com/symfony-si/magento2-sl_si');
+        $project->setSlug('magento2');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Semver.org');
+        $project->setDescription('Semantic Versions');
+        $project->setLink('http://semver.org/lang/sl');
+        $project->setRepository('https://github.com/mojombo/semver.org');
+        $project->setSlug('semantic-versioning');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('The PHP League');
+        $project->setDescription('Slovenski prevod strani PHP lige paketov');
+        $project->setLink('http://thephpleague.com/sl/');
+        $project->setRepository('https://github.com/thephpleague/thephpleague.github.io');
+        $project->setSlug('the-php-league');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Yii framework');
+        $project->setDescription('Slovenski prevod ogrodja Yii 2');
+        $project->setLink('https://github.com/yiisoft/yii2');
+        $project->setRepository('https://github.com/yiisoft/yii2');
+        $project->setSlug('the-php-league');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Progit');
+        $project->setDescription('Slovenski prevod knjige progit');
+        $project->setLink('http://git-scm.com/book/sl');
+        $project->setRepository('https://github.com/progit/progit2-sl');
+        $project->setSlug('progit');
+        $projects[] = $project;
+
+        $project = new Project();
+        $project->setTitle('Zend Framework 2');
+        $project->setDescription('Slovenian translation of Zend Framework 2');
+        $project->setLink('https://github.com/zendframework/zf2');
+        $project->setRepository('https://github.com/zendframework/zf2');
+        $project->setSlug('zend-framework-2');
+        $projects[] = $project;
 
         return $this->render(
             'default/ecosystem.html.twig',

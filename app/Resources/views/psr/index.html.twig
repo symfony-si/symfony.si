@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <h1>Priporočila PHP standardov</h1>
+
+    <p><em>Slovenski prevodi <a href="http://php-fig.org">PHP-FIG PSR</a></em></p>.
+
+    <ul>
+        {% for psr in psrs %}
+            <li>
+                <a href="{{ path('psr_show', {'slug': psr.slug }) }}">{{ psr.title }}</a>
+                {% if psr.meta %}
+                    <ul>
+                        <li><a href="{{ path('psr_show', {'slug': psr.meta.slug}) }}" title="{{ psr.meta.title }}">Meta dokument</a></li>
+                    </ul>
+                {% endif %}
+
+                {% if psr.examples %}
+                    <ul>
+                        <li><a href="{{ path('psr_show', {'slug': psr.examples.slug}) }}" title="{{ psr.examples.title }}">Primeri</a></li>
+                    </ul>
+                {% endif %}
+            </li>
+        {% else %}
+            <li>Datoteke niso na voljo.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

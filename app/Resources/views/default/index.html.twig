@@ -1,5 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% block sidebar %}
+    {% include('includes/facebook.html.twig') %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
 
     <h1>Welcome to Symfony.si</h1>
@@ -20,6 +25,7 @@
                     'year': post.created|date("Y"),
                     'month': post.created|date("m"),
                     'day': post.created|date("d"),
+                    'num': post.num,
                     'slug': post.slug
                 }) }}">{{ post.title }}</a></li>
         {% endfor %}

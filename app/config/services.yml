@@ -4,6 +4,10 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.repository.post:
+        class:        AppBundle\Repository\PostRepository
+        arguments:    ["%kernel.root_dir%"]
+
+    app.repository.psr:
+        class:        AppBundle\Repository\PsrRepository
+        arguments:    ["%kernel.root_dir%"]

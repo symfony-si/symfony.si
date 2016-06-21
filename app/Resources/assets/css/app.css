@@ -83,3 +83,7 @@ code {
 blockquote.warning {
     border-color: red;
 }
+
+pre {
+    font-size: 15px;
+}

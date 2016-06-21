@@ -1,60 +1,49 @@
 <?php
+
 namespace AppBundle\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * @ORM\Entity
- * @ORM\Table(name="project")
+ * Project class
  */
 class Project
 {
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
      */
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @var string
      */
     private $title;
 
     /**
-     * @ORM\Column(type="text")
+     * @var string
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @var string
      */
     private $link;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @var string
      */
     private $repository;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @var string
      */
     private $slug;
 
     /**
-     * @var datetime $created
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
+     * @var \DateTime $created
      */
     private $created;
 
     /**
-     * @var datetime $updated
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
+     * @var \DateTime $updated
      */
     private $updated;
 

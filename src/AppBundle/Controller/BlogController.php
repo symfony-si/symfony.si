@@ -4,18 +4,22 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Symfony SI blog.
+ *
+ * @Route("/blog")
+ */
 class BlogController extends Controller
 {
     /**
-     * @Route("/blog", name="blog_homepage")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("", name="blog_homepage")
+     * @return Response
      */
     public function indexAction()
     {
-        $posts = $this->getDoctrine()
-            ->getRepository('AppBundle:Post')
-            ->findAll();
+        $posts = $this->get('app.repository.post')->findAll();
         
         return $this->render(
             'blog/index.html.twig',
@@ -24,20 +28,28 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_show", requirements={
+     * @Route("/{year}/{month}/{day}/{num}/{slug}", name="blog_show", requirements={
      *     "year": "\d+",
      *     "month": "\d+",
-     *     "day": "\d+"
+     *     "day": "\d+",
+     *     "num": "\d+"
      * })
-     * @param $slug
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param int $year
+     * @param int $month
+     * @param int $day
+     * @param int $num
+     * @param string $slug
+     * @return Response
      */
-    public function showAction($slug)
+    public function showAction($year, $month, $day, $num, $slug)
     {
-        $post = $this->getDoctrine()
-            ->getRepository('AppBundle:Post')
-            ->findOneBySlug($slug);
-        $em = $this->getDoctrine()->getManager();
+        $post = $this->get('app.repository.post')->findOneBy([
+            'year' => $year,
+            'month' => $month,
+            'day' => $day,
+            'num' => $num,
+            'slug' => $slug
+        ]);
 
         if (!$post) {
             throw $this->createNotFoundException(
@@ -49,6 +61,5 @@ class BlogController extends Controller
             'blog/show.html.twig',
             ['post' => $post]
         );
-
     }
 }

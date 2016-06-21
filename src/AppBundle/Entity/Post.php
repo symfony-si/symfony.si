@@ -1,67 +1,79 @@
 <?php
+
 namespace AppBundle\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="post")
+ * Post class.
  */
 class Post
 {
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var string
      */
-    protected $id;
+    private $file;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @var string
      */
     private $title;
 
-    
     /**
-     * @ORM\Column(type="text")
+     * @var string
      */
     private $intro;
 
     /**
-     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $readTime;
+
+    /**
+     * @var string
      */
     private $content;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @var string
      */
     private $slug;
 
     /**
-     * @var datetime $created
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
+     * @var int
+     */
+    private $num;
+
+    /**
+     * @var \DateTime
      */
     private $created;
 
     /**
-     * @var datetime $updated
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
+     * @var \DateTime
      */
     private $updated;
 
     /**
-     * Get id
+     * Set file
      *
-     * @return integer
+     * @param string $file
+     * @return Post
      */
-    public function getId()
+    public function setFile($file)
     {
-        return $this->id;
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->file;
     }
 
     /**
@@ -73,7 +85,7 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
@@ -96,7 +108,7 @@ class Post
     public function setIntro($intro)
     {
         $this->intro = $intro;
-    
+
         return $this;
     }
 
@@ -119,7 +131,7 @@ class Post
     public function setContent($content)
     {
         $this->content = $content;
-    
+
         return $this;
     }
 
@@ -132,7 +144,7 @@ class Post
     {
         return $this->content;
     }
-    
+
     /**
      * Set slug
      *
@@ -142,7 +154,7 @@ class Post
     public function setSlug($slug)
     {
         $this->slug = $slug;
-    
+
         return $this;
     }
 
@@ -156,13 +168,82 @@ class Post
         return $this->slug;
     }
 
+    /**
+     * @param string $date
+     */
+    public function setCreated($date)
+    {
+        $this->created = \DateTime::createFromFormat('Y-m-d', $date);
+    }
+
+    /**
+     * @return \DateTime
+     */
     public function getCreated()
     {
         return $this->created;
     }
 
+    /**
+     * @param string $date
+     */
+    public function setUpdated($date)
+    {
+        $this->updated = \DateTime::createFromFormat('Y-m-d', $date);
+    }
+
+    /**
+     * @return \DateTime
+     */
     public function getUpdated()
     {
         return $this->updated;
     }
+
+    /**
+     * Set num
+     *
+     * @param int $id
+     * @return Post
+     */
+    public function setNum($id)
+    {
+        $this->num = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get num
+     *
+     * @return string
+     */
+    public function getNum()
+    {
+        return $this->num;
+    }
+
+    /**
+     * Set read time
+     *
+     * @param string $readTime
+     * @return Post
+     */
+    public function setReadTime($readTime)
+    {
+        $this->readTime = $readTime;
+
+        return $this;
+    }
+
+    /**
+     * Get read time
+     *
+     * @return string
+     */
+    public function getReadTime()
+    {
+        return $this->readTime;
+    }
+
 }

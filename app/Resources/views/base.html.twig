@@ -29,7 +29,9 @@
         <![endif]-->
     </head>
     <body>
-        {{ include('google.html.twig') }}
+        {% if (app.environment == 'prod') %} }}
+        {{ include('includes/google.html.twig') }}
+        {% endif %}
 
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -70,8 +72,7 @@
                     <div class="col-md-3">
                         <div class="sidebar">
                             {% block sidebar %}
-                                <a class="twitter-timeline" href="https://twitter.com/symfonysi" data-widget-id="565644083893661696">Tweets by @symfonysi</a>
-                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                                <a class="twitter-timeline" href="https://twitter.com/symfonysi" data-widget-id="565644083893661696" data-tweet-limit="5" data-chrome="nofooter transparent noborders" width="300">Tweets by @symfonysi</a>
                             {% endblock %}
                         </div>
                     </div>
@@ -86,7 +87,6 @@
                         <h1><small>About</small></h1>
                         <ul>
                             <li><a href="{{ path('copyrights') }}">Symfony.si - Symfony Slovenia</a></li>
-                            <li><a href="http://symfony.com" target="_blank">Symfony.com official page</a></li>
                             <li><a href="{{ path('contact') }}">Contact us</a></li>
                         </ul>
                     </div>
@@ -94,6 +94,7 @@
                         <h1><small>SI resources</small></h1>
                         <ul>
                             <li><a href="{{ path('ecosystem') }}">SI ecosystem</a></li>
+                            <li><a href="{{ path('psr_index') }}">PHP Standards Recommendations</a></li>
                             <li><a href="http://sl.phptherightway.com">PHP: The Right Way</a></li>
                         </ul>
                     </div>
@@ -106,13 +107,32 @@
                     </div>
                     <div class="col-md-3">
                         <h1><small>Built with <i style="color:red;" class="fa fa-heart fa-lg"></i></small></h1>
-                        Powered by <img src="{{ asset('images/symfonyLogo.png') }}">
+                        Powered by <a href="https://symfony.com"><img src="{{ asset('images/symfonyLogo.png') }}"></a>
                     </div>
                 </div>
             </div>
         </div>
 
         {% block javascripts %}
+            <script>
+                window.twttr = (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                            t = window.twttr || {};
+                    if (d.getElementById(id)) return t;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+
+                    t._e = [];
+                    t.ready = function(f) {
+                        t._e.push(f);
+                    };
+
+                    return t;
+                }(document, "script", "twitter-wjs"));
+            </script>
+
             <script src="{{ asset('js/app.js') }}"></script>
         {% endblock %}
     </body>

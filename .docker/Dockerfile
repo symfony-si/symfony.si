@@ -4,7 +4,7 @@ MAINTAINER Peter Kokot <peterkokot@gmail.com>
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
     apt-get update && apt-get upgrade -y && \
-    apt-get install -y wget curl vim git build-essential supervisor && \
+    apt-get install -y wget curl vim git build-essential net-tools supervisor && \
     echo "deb http://packages.dotdeb.org jessie all\ndeb-src http://packages.dotdeb.org jessie all" > /etc/apt/sources.list.d/dotdeb.list && \
     wget https://www.dotdeb.org/dotdeb.gpg -O /tmp/dotdeb.gpg && apt-key add /tmp/dotdeb.gpg && \
     apt-get update && apt-get install -y php7.0-cgi \
@@ -13,7 +13,6 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
     php7.0-gd \
     php7.0-mcrypt \
     php7.0-xsl \
-    php7.0-mysql \
     nginx
 
 # Install Node.js, npm, gulp, bower

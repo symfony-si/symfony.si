@@ -4,18 +4,5 @@ services:
     build: .
     volumes:
       - "../:/var/www/symfony.si"
-    depends_on:
-      - db
-    image: 'symfony-si:1.2'
-    container_name: symfony_si_web
-  db:
-    image: 'mariadb:10.1'
-    volumes:
-      - "./.data:/var/lib/mysql"
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: symfony_si
-      MYSQL_USER: symfonysi
-      MYSQL_PASSWORD: password
-    container_name: symfony_si_db
+    image: 'symfony-si:1.0'
+    container_name: symfony_si

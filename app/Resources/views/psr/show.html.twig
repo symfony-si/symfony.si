@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}PSR - Priporočila PHP Standardov{% endblock %}
+
+{% block body %}
+    {{ psr.content|raw }}
+{% endblock %}
+
+{% block sidebar %}
+    <div><em>Čas branja: {{ psr.readTime }}</em></div>
+    <div><em>Zadnja posodobitev: {{ psr.updated|date('d.m.Y') }}</em></div>
+
+    <br>
+
+    {% if psr.meta %}
+        <a href="{{ path('psr_show', {'slug': psr.meta.slug}) }}">{{ psr.meta.title }}</a>
+    {% endif %}
+
+    {% if psr.examples %}
+        <a href="{{ path('psr_show', {'slug': psr.examples.slug}) }}">{{ psr.examples.title }}</a>
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}
