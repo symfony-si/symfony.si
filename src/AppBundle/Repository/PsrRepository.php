@@ -8,9 +8,26 @@ use Mni\FrontYAML\Parser;
 
 class PsrRepository
 {
-    public function __construct($kernelRootDir)
+    /**
+     * @var string
+     */
+    private $path;
+
+    /**
+     * @var Parser
+     */
+    private $parser;
+
+    /**
+     * PsrRepository constructor.
+     *
+     * @param $kernelRootDir
+     * @param Parser $parser
+     */
+    public function __construct($kernelRootDir, Parser $parser)
     {
         $this->path = $kernelRootDir;
+        $this->parser = $parser;
     }
 
     /**
@@ -43,9 +60,8 @@ class PsrRepository
         $finder->files()->in($this->path.'/../vendor/symfony-si/fig-standards-sl/accepted')->name("*.md");
         $finder->sortByName();
 
-        $parser = new Parser();
         foreach ($finder as $file) {
-            $document = $parser->parse($file->getContents());
+            $document = $this->parser->parse($file->getContents());
             if ($document->getYAML()['slug'] == $slug) {
                 return $this->getPsrByFile($file->getRealPath());
             }
@@ -88,8 +104,7 @@ class PsrRepository
      */
     private function getPsrByFileWithoutChilds($file)
     {
-        $parser = new Parser();
-        $document = $parser->parse(file_get_contents($file));
+        $document = $this->parser->parse(file_get_contents($file));
 
         $psr = new Psr();
         $psr->setTitle($document->getYAML()['title']);

@@ -9,15 +9,32 @@ use Mni\FrontYAML\Parser;
 class PostRepository
 {
     /**
+     * @var string
+     */
+    private $path;
+
+    /**
+     * @var Parser
+     */
+    private $parser;
+
+    /**
      * PostRepository constructor.
      *
      * @param string $kernelRootDir
+     * @param Parser $parser
      */
-    public function __construct($kernelRootDir)
+    public function __construct($kernelRootDir, Parser $parser)
     {
         $this->path = $kernelRootDir;
+        $this->parser = $parser;
     }
 
+    /**
+     * Gets all Blog posts.
+     *
+     * @return array
+     */
     public function findAll()
     {
         $finder = new Finder();
@@ -89,8 +106,7 @@ class PostRepository
             return null;
         }
 
-        $parser = new Parser();
-        $document = $parser->parse(file_get_contents($file));
+        $document = $this->parser->parse(file_get_contents($file));
 
         $post = new Post();
         $post->setTitle($document->getYaml()['title']);

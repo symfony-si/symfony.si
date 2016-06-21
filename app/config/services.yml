@@ -4,11 +4,11 @@ services:
 
     app.repository.post:
         class:        AppBundle\Repository\PostRepository
-        arguments:    ['%kernel.root_dir%']
+        arguments:    ['%kernel.root_dir%', '@markdown']
 
     app.repository.psr:
         class:        AppBundle\Repository\PsrRepository
-        arguments:    ['%kernel.root_dir%']
+        arguments:    ['%kernel.root_dir%', '@markdown']
 
     app.twig.app_extension:
         class:  AppBundle\Twig\AppExtension
