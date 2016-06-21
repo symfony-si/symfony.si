@@ -96,7 +96,7 @@ class PostRepository
         $post->setTitle($document->getYaml()['title']);
         $post->setReadTime($document->getYaml()['read_time']);
         $post->setIntro($document->getYaml()['intro']);
-        $post->setCreated(substr(basename($file), 10));
+        $post->setCreated(substr(basename($file), 0, 10));
         $post->setUpdated($document->getYAML()['updated']);
         $post->setNum(substr(basename($file), 11, -3));
         $post->setSlug($document->getYaml()['slug']);
