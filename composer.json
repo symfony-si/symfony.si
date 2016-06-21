@@ -45,7 +45,8 @@
         "mnapoli/front-yaml": "^1.5",
         "symfony-si/symfony-cheatsheet": "*",
         "symfony-si/symfony-resources": "*",
-        "symfony-si/fig-standards-sl": "*"
+        "symfony-si/fig-standards-sl": "*",
+        "symfony-si/conduct": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -83,6 +84,18 @@
                 "version": "dev-master",
                 "source": {
                     "url": "https://github.com/symfony-si/fig-standards-sl",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        "conduct": {
+            "type": "package",
+            "package": {
+                "name": "symfony-si/conduct",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/symfony-si/conduct",
                     "type": "git",
                     "reference": "master"
                 }

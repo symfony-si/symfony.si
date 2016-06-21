@@ -304,4 +304,20 @@ class DefaultController extends Controller
             ['projects' => $projects]
         );
     }
+
+    /**
+     * @Route("/code-of-conduct", name="conduct")
+     * @Cache(expires="tomorrow", public=true)
+     *
+     * @return Response
+     */
+    public function conductAction()
+    {
+        $file = $this->get('kernel')->getRootDir().'/../vendor/symfony-si/conduct/README.md';
+        $content = (file_exists($file)) ? file_get_contents($file) : '<h1>Symfony.si Code of Conduct</h1>';
+        $parser = new Parser();
+        $document = $parser->parse($content);
+
+        return $this->render('default/conduct.html.twig', ['content' => $document->getContent()]);
+    }
 }

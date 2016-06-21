@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumbs %}
+<li class="active">Code of Conduct</li>
+{% endblock %}
+
+{% block sidebar %}
+    <h2>See Also</h2>
+
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="{{ path('copyrights') }}">License</a></li>
+        <li><a href="{{ path('contact') }}">Contact us</a></li>
+        <li><a href="{{ path('join') }}">Get Involved</a></li>
+    </ul>
+
+{% endblock %}
+
+{% block body %}
+    {{ content|raw }}
+{% endblock %}

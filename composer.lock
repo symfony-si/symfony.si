@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "88ebdf3f3a773271a85517ed0e587091",
-    "content-hash": "a2874e44a1c51da87057768cf3694ecb",
+    "hash": "ac6db6ff67c8dbafb58a59d35bf87bc8",
+    "content-hash": "f26662eae93aa3a4339ad5838702357e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2130,6 +2130,17 @@
                 "mailer"
             ],
             "time": "2016-05-01 08:45:47"
+        },
+        {
+            "name": "symfony-si/conduct",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony-si/conduct",
+                "reference": "master"
+            },
+            "type": "library",
+            "time": "2016-06-21 20:07:10"
         },
         {
             "name": "symfony-si/fig-standards-sl",
