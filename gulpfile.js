@@ -32,9 +32,16 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('web/js'));
 });
 
+gulp.task('fonts', function() {
+    gulp.src([
+        config.bowerDir+'/bootstrap/dist/fonts/glyphicons-halflings-regular*'
+    ])
+        .pipe(gulp.dest('web/fonts'));
+});
+
 gulp.task('watch', function() {
     gulp.watch(config.assetsDir+'/'+config.cssPattern, ['styles']);
     gulp.watch(config.assetsDir+'/'+config.jsPattern, ['scripts']);
 });
 
-gulp.task('default', ['styles', 'scripts', 'watch']);
+gulp.task('default', ['styles', 'scripts', 'fonts', 'watch']);

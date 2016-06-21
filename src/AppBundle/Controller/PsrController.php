@@ -46,7 +46,8 @@ class PsrController extends Controller
         }
 
         return $this->render('psr/show.html.twig', [
-            'psr' => $psr
+            'psr' => $psr,
+            'psrs' => $this->get('app.repository.psr')->findAll()
         ]);
     }
 }

@@ -2,13 +2,72 @@
 
 {% block title %}Blog{% endblock %}
 
+{% block breadcrumbs %}
+    <li><a href="{{ path('blog_homepage') }}">Blog</a></li>
+    <li class="active">{{ post.title }}</li>
+{% endblock %}
+
+{% block sidebar %}
+    <a class="twitter-share-button"
+       href="https://twitter.com/intent/tweet">
+        Tweet</a>
+
+    <h2>Other latest blog posts</h2>
+
+    <ul class="nav nav-pills nav-stacked">
+        {% for sidebarpost in sidebar_posts %}
+        <li><a href="{{ path('blog_show', {
+            'year': sidebarpost.created|date("Y"),
+            'month': sidebarpost.created|date("m"),
+            'day': sidebarpost.created|date("d"),
+            'num': sidebarpost.num,
+            'slug': sidebarpost.slug}) }}">{{ sidebarpost.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
 {% block body %}
 
     <h1>{{ post.title }}</h1>
-    <p><em>{{ post.created|date("Y-m-d") }}</em></p>
 
+    <div class="text-center">
+        <small>
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <em>Read time: {{ post.readTime }}</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <em>Last change: {{ post.created|date("Y-m-d") }}</em>
+        </small>
+    </div>
+
+    <br>
     <blockquote><p>{{ post.intro }}</p></blockquote>
 
     <p>{{ post.content|raw }}</p>
 
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+
+         var disqus_config = function () {
+         this.page.url = 'https://symfony.si';  // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = post.file; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+        (function() {  // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//symfonysi.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script id="dsq-count-scr" src="//symfonysi.disqus.com/count.js" async></script>
 {% endblock %}

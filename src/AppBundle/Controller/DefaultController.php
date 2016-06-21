@@ -124,6 +124,7 @@ class DefaultController extends Controller
         );
         $srcContributors = $client->api('repo')->contributors('symfony-si', 'symfony.si');
         $docsContributors = $client->api('repo')->contributors('symfony-si', 'symfony-docs-sl');
+        $mustWatchContributors = $client->api('repo')->contributors('symfony-si', 'symfony-must-watch');
         $contributors = [];
 
         foreach($srcContributors as $key=>$contributor) {
@@ -136,6 +137,15 @@ class DefaultController extends Controller
         }
 
         foreach($docsContributors as $key=>$contributor) {
+            $user = $client->api('user')->show($contributor['login']);
+            $contributors[$contributor['login']] = [
+                'name'       => ($user['name']) ? $user['name'] : $contributor['login'],
+                'html_url'   => $user['html_url'],
+                'avatar_url' => $user['avatar_url'],
+            ];
+        }
+
+        foreach($mustWatchContributors as $key=>$contributor) {
             $user = $client->api('user')->show($contributor['login']);
             $contributors[$contributor['login']] = [
                 'name'       => ($user['name']) ? $user['name'] : $contributor['login'],

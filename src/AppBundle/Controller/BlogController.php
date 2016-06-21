@@ -51,6 +51,8 @@ class BlogController extends Controller
             'slug' => $slug
         ]);
 
+        $sidebarPosts = $this->get('app.repository.post')->findLatest();
+
         if (!$post) {
             throw $this->createNotFoundException(
                 'No post found for slug '.$slug
@@ -59,7 +61,7 @@ class BlogController extends Controller
 
         return $this->render(
             'blog/show.html.twig',
-            ['post' => $post]
+            ['post' => $post, 'sidebar_posts' => $sidebarPosts]
         );
     }
 }

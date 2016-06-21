@@ -2,23 +2,42 @@
 
 {% block title %}PSR - Priporočila PHP Standardov{% endblock %}
 
+{% block breadcrumbs %}
+    <li><a href="{{ path('psr_index') }}">PHP Standards Recommendations</a></li>
+    <li class="active">{{ psr.title }}</li>
+{% endblock %}
+
 {% block body %}
+    <div class="text-left">
+        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <em>Čas branja: {{ psr.readTime }}</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <em>Zadnja sprememba: {{ psr.updated|date("d.m.Y") }}</em>
+    </div>
+
     {{ psr.content|raw }}
 {% endblock %}
 
 {% block sidebar %}
-    <div><em>Čas branja: {{ psr.readTime }}</em></div>
-    <div><em>Zadnja posodobitev: {{ psr.updated|date('d.m.Y') }}</em></div>
-
-    <br>
-
     {% if psr.meta %}
+        <h2>Meta dokument</h2>
         <a href="{{ path('psr_show', {'slug': psr.meta.slug}) }}">{{ psr.meta.title }}</a>
     {% endif %}
 
     {% if psr.examples %}
+        <h2>Primeri</h2>
         <a href="{{ path('psr_show', {'slug': psr.examples.slug}) }}">{{ psr.examples.title }}</a>
     {% endif %}
 
-    {{ parent() }}
+    <h2>Glej tudi</h2>
+
+    <ul class="nav nav-pills nav-stacked">
+        {% for sidebarpsr in psrs %}
+            {% set itemPath = path('psr_show', {'slug': sidebarpsr.slug}) %}
+            {% set currentPath = path(app.request.get('_route'), app.request.get('_route_params')) %}
+            <li{% if itemPath == currentPath %} class="active"{% endif %}><a href="{{ itemPath }}">{{ sidebarpsr.title }}</a></li>
+
+            {% if sidebarpsr.meta %}
+                <li{% if path('psr_show', {'slug': sidebarpsr.meta.slug}) == currentPath %} class="active"{% endif %}><a href="{{ path('psr_show', {'slug': sidebarpsr.meta.slug}) }}">{{ sidebarpsr.meta.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 {% endblock %}

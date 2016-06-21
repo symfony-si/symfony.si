@@ -101,6 +101,7 @@ class PostRepository
         $post->setNum(substr(basename($file), 11, -3));
         $post->setSlug($document->getYaml()['slug']);
         $post->setContent($document->getContent());
+        $post->setFile(basename($file));
 
         return $post;
     }

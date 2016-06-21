@@ -2,7 +2,12 @@
 
 {% block title %}Blog{% endblock %}
 
+{% block breadcrumbs %}
+    <li class="active">Blog</li>
+{% endblock %}
+
 {% block body %}
+
     <h1>Symfony.si blog</h1>
 
     {% for post in posts %}
@@ -14,8 +19,17 @@
         'num': post.num,
         'slug': post.slug
         }) %}
-        <h2><span class="label label-default">{{ post.created|date("Y-m-d") }}</span> <a href="{{ post_path }}">{{ post.title }}</a></h2>
 
-        <p>{{ post.intro }} <a href="{{ post_path }}">&gt;&gt;</a></p>
+        <div class="media">
+            <div class="media-left">
+                <div style="font-size: 60px;" class="glyphicon glyphicon-edit text-muted"></div>
+            </div>
+            <div class="media-body">
+                <h2 class="media-heading"><a href=" {{ post_path }} ">{{ post.title }}</a></h2>
+                <small>{{ post.created|date('Y-m-d') }}</small>
+                <p>{{ post.intro }}</p>
+            </div>
+        </div>
     {% endfor %}
+
 {% endblock %}

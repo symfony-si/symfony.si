@@ -65,8 +65,19 @@
         </nav>
 
         <div class="container">
-            <div class="headerImage"></div>
+            {% if app.request.get('_route') == 'homepage' %}
+                <div class="headerImage"></div>
+            {% endif %}
             <div class="starter-template">
+
+                {% if app.request.get('_route') != 'homepage' %}
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        {% block breadcrumbs %}
+                        {% endblock %}
+                    </ol>
+                {% endif %}
+
                 <div class="row">
                 <div class="col-md-9">{% block body %}{% endblock %}</div>
                     <div class="col-md-3">
@@ -86,7 +97,7 @@
                     <div class="col-md-3">
                         <h1><small>About</small></h1>
                         <ul>
-                            <li><a href="{{ path('copyrights') }}">Symfony.si - Symfony Slovenia</a></li>
+                            <li><a href="{{ path('copyrights') }}">License</a></li>
                             <li><a href="{{ path('contact') }}">Contact us</a></li>
                         </ul>
                     </div>

@@ -33,11 +33,14 @@
 
     <h2>Latest Symfony bundles</h2>
 
-    <p>Source: <a href="http://knpbundles.com">knpbundles.com</a></p>
+    <p><small>Source: <a href="http://knpbundles.com">knpbundles.com</a></small></p>
 
     <ul>
         {% for bundle in bundles %}
-            <li><a href="{{ bundle.url }}" target="_blank">{{ bundle.name }}</a></li>
+            <li>
+                <a href="{{ bundle.url }}" target="_blank">{{ bundle.name }}</a><br>
+                <small>{{ bundle.description|raw }}</small>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
