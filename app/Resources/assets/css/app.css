@@ -35,7 +35,7 @@ code {
 }
 
 .headerImage {
-    background-image: url('../images/header.png');
+    background-image: url('../img/header.png');
     height: 290px;
     background-repeat: no-repeat;
 }

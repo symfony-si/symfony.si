@@ -26,39 +26,32 @@ cd symfony.si
 composer install
 ```
 
-After this you should get a working symfony.si website on your development machine.
+Assets (CSS, JavaScript and images) are handled with [Gulp](http://gulpjs.com/):
+
+```bash
+yarn install
+./node_modules/.bin/gulp build --production
+```
+
+After this you can get a symfony.si website running on your development machine:
+
+```bash
+bin/console server:run
+```
 
 ### Docker Installation
 
-Docker users can use provided [Docker files](.docker) to get up and running fast:
+Docker users can use provided [Docker files](.docker) and [Makefile](Makefile)
+to get up and running fast:
 
 ```bash
-git clone git@github.com:symfony-si/symfony.si
+git clone git://github.com/symfony-si/symfony.si
 cd symfony.si
-docker-compose -f .docker/docker-compose.yml up --force-recreate -d
-docker exec -it <container_name> zsh
-cd /var/www/symfony.si/
-composer install
+make install
+make up
 ```
 
-Point IP od Docker container to symfony.si.dev:
-
-```bash
-docker inspect <container_name> | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"
-echo "XXX.XX.X.X symfony.si.dev" | sudo tee -a /etc/hosts
-```
-
-### Assets
-
-Assets (CSS, JavaScript and images) are handled with [Gulp](http://gulpjs.com/).
-
-```bash
-$ npm install
-$ bower install
-$ gulp --production
-# or in development
-$ gulp
-```
+And visit `http://localhost`
 
 ## License and Contributing
 

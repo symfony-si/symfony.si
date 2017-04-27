@@ -35,4 +35,14 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('Copyrights', $crawler->filter('h1')->text());
     }
+
+    public function testContributors()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/contributors');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertContains('Symfony.si contributors', $crawler->filter('h1')->text());
+    }
 }

@@ -73,7 +73,7 @@ class DefaultController extends Controller
 
         $form->handleRequest($request);
 
-        if($form->isValid()) {
+        if($form->isSubmitted() && $form->isValid()) {
             // send email to admin
             $message = \Swift_Message::newInstance()
                 ->setSubject('Message from Symfony.si')
@@ -117,40 +117,42 @@ class DefaultController extends Controller
      */
     public function contributorsAction(Request $request)
     {
-        $cache = $this->get('kernel')->getRootDir().'/../var/cache/github-api-cache';
-        $client = new \Github\Client(
-            new \Github\HttpClient\CachedHttpClient(['cache_dir' => $cache])
-        );
-        $srcContributors = $client->api('repo')->contributors('symfony-si', 'symfony.si');
-        $docsContributors = $client->api('repo')->contributors('symfony-si', 'symfony-docs-sl');
-        $mustWatchContributors = $client->api('repo')->contributors('symfony-si', 'symfony-must-watch');
-        $contributors = [];
+        $cache = $this->get('cache.app');
+        $contributorsFromCache = $cache->getItem('app.contributors');
+        if (!$contributorsFromCache->isHit()) {
+            $client = new \Github\Client();
 
-        foreach($srcContributors as $key=>$contributor) {
-            $user = $client->api('user')->show($contributor['login']);
-            $contributors[$contributor['login']] = [
-                'name'       => ($user['name']) ? $user['name'] : $contributor['login'],
-                'html_url'   => $user['html_url'],
-                'avatar_url' => $user['avatar_url'],
+            $repos = [
+                ['symfony-si', 'symfony.si'],
+                ['symfony-si', 'symfony-must-watch'],
+                ['symfony-si', 'symfony-resources'],
+                ['symfony-si', 'symfony-cheatsheet'],
             ];
-        }
+            $contributors = [];
+            foreach ($repos as $repo) {
+                $organizationApi = $client->api('repo');
+                $paginator = new \Github\ResultPager($client);
+                $parameters = [$repo[0], $repo[1]];
+                $repoContributors = $paginator->fetchAll($organizationApi, 'contributors', $parameters);
+                foreach ($repoContributors as $contributor) {
+                    $contributors[$contributor['login']] = [
+                        'html_url' => $contributor['html_url'],
+                        'avatar_url' => $contributor['avatar_url'],
+                        'contributions' => (isset($contributors[$contributor['login']]['contributions'])) ? $contributors[$contributor['login']]['contributions'] + $contributor['contributions'] : $contributor['contributions'],
+                    ];
+                }
+            }
 
-        foreach($docsContributors as $key=>$contributor) {
-            $user = $client->api('user')->show($contributor['login']);
-            $contributors[$contributor['login']] = [
-                'name'       => ($user['name']) ? $user['name'] : $contributor['login'],
-                'html_url'   => $user['html_url'],
-                'avatar_url' => $user['avatar_url'],
-            ];
-        }
+            uasort($contributors, function($a, $b) {
+                return $a['contributions'] <=> $b['contributions'];
+            });
 
-        foreach($mustWatchContributors as $key=>$contributor) {
-            $user = $client->api('user')->show($contributor['login']);
-            $contributors[$contributor['login']] = [
-                'name'       => ($user['name']) ? $user['name'] : $contributor['login'],
-                'html_url'   => $user['html_url'],
-                'avatar_url' => $user['avatar_url'],
-            ];
+            $contributors = array_reverse($contributors);
+
+            $contributorsFromCache->set($contributors);
+            $cache->save($contributorsFromCache);
+        } else {
+            $contributors = $contributorsFromCache->get();
         }
 
         return $this->render('default/contributors.html.twig', [

@@ -1,8 +1,17 @@
-version: '2'
+version: '3.2'
+
 services:
-  web:
-    build: .
-    volumes:
-      - "../:/var/www/symfony.si"
-    image: 'symfony-si:1.0'
-    container_name: symfony_si
+  app:
+    build:
+      context: ../
+      dockerfile: ./.docker/app/Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    container_name: symfonysi
+    networks:
+      - symfonysi
+
+networks:
+  symfonysi:
+    driver: bridge

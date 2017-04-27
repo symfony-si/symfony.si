@@ -15,7 +15,8 @@
 /vendor/
 /web/bundles/
 /node_modules/
-/bower_components/
-/web/css/
-/web/js/
-/web/fonts/
+/web/*
+!/web/app_dev.php
+!/web/app.php
+!/web/config.php
+!/web/robots.txt

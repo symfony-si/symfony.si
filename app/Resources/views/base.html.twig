@@ -18,7 +18,7 @@
         <title>{% block title %}Symfony.si - Slovenian Symfony User Group{% endblock %}</title>
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
         {% endblock %}
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,7 +42,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ path('homepage') }}" title="Symfony.si"><img src="{{ asset('images/logo.png') }}" alt="Symfony.si"></a>
+                    <a class="navbar-brand" href="{{ path('homepage') }}" title="Symfony.si"><img src="{{ asset('assets/img/logo.png') }}" alt="Symfony.si"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-md-3">
                         <h1><small>Built with <i style="color:red;" class="fa fa-heart fa-lg"></i></small></h1>
-                        Powered by <a href="https://symfony.com"><img src="{{ asset('images/symfonyLogo.png') }}"></a>
+                        Powered by <a href="https://symfony.com"><img src="{{ asset('assets/img/symfonyLogo.png') }}"></a>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
                 }(document, "script", "twitter-wjs"));
             </script>
 
-            <script src="{{ asset('js/app.js') }}"></script>
+            <script src="{{ asset('assets/js/app.js') }}"></script>
         {% endblock %}
     </body>
 </html>

@@ -12,10 +12,8 @@
 
     <p>Symfony.si project was generously contributed by:</p>
 
-    {% for contributor in contributors %}
-        <div class="pull-left contributor"><a href="{{ contributor.html_url }}"><img src="{{ contributor.avatar_url }}" width="100" alt="{{ contributor.name }}" class="img-rounded"><br>{{ contributor.name }}</a></div>
+    {% for key, contributor in contributors %}
+        <div class="pull-left contributor"><a href="{{ contributor.html_url }}"><img src="{{ contributor.avatar_url }}" width="100" alt="{{ key }}" class="img-rounded"><br>{{ key }}</a></div>
     {% endfor %}
 
 {% endblock %}
-
-
