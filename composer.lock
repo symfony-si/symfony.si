@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5f83b33269590552b6b9dc8aed6c853",
+    "content-hash": "3e09865b638e5f33112094e6d1dde30c",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1431,6 +1431,50 @@
                 "random"
             ],
             "time": "2017-03-13T16:27:32+00:00"
+        },
+        {
+            "name": "php-earth/swoole-engine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-earth/swoole-engine.git",
+                "reference": "3981bd9242a7536bc4e02b0e0260ae9b395c08e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-earth/swoole-engine/zipball/3981bd9242a7536bc4e02b0e0260ae9b395c08e0",
+                "reference": "3981bd9242a7536bc4e02b0e0260ae9b395c08e0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-swoole": "*",
+                "php": ">=7.1",
+                "symfony/console": "^3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.1"
+            },
+            "bin": [
+                "bin/swoole"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpEarth\\Swoole\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP.earth Contributors",
+                    "homepage": "https://github.com/php-earth/swoole-engine/graphs/contributors"
+                }
+            ],
+            "description": "Event-driven engine for running PHP with Swoole extension.",
+            "time": "2017-04-28 22:21:51"
         },
         {
             "name": "php-http/cache-plugin",
@@ -3088,11 +3132,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "php-earth/swoole-engine": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1"
+        "php": "^7.1",
+        "ext-swoole": "*"
     },
     "platform-dev": [],
     "platform-overrides": {

@@ -4,3 +4,5 @@ services:
   app:
     volumes:
       - "../:/var/www/app"
+    environment:
+      - APP_ENV=dev
