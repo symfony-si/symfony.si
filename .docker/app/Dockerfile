@@ -1,4 +1,4 @@
-FROM phpearth/php:alpine
+FROM petk/php:alpine
 
 RUN install-php-ext swoole \
     && apk --no-cache add git \

@@ -8,8 +8,8 @@
         <meta name="author" content="Symfony Slovenia">
         <meta property="og:title" content="Symfony and PHP local user group">
         <meta property="og:type" content="article">
-        <meta property="og:url" content="https://symfony.si">
-        <meta property="og:image" content="https://symfony.si/images/header.png">
+        <meta property="og:url" content="{{ app.request.uri }}">
+        <meta property="og:image" content="{% block image %}{{ absolute_url(asset('assets/img/header.png')) }}{% endblock %}">
         <meta property="og:description" content="Symfony and PHP local user group">
         <meta property="og:site_name" content="Symfony Slovenia">
 

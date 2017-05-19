@@ -5,9 +5,11 @@ php:
   - nightly
 
 before_install:
-    - travis_retry composer self-update
+  - travis_retry composer self-update
+  - pecl install swoole
 
 install:
-    - travis_retry composer install --no-interaction --prefer-dist
+  - travis_retry composer install --no-interaction --prefer-dist
 
-script: phpunit
+script:
+  - vendor/bin/phpunit

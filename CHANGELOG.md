@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file. This projec
 [Semantic Versioning](http://semver.org/).
 
 
-## [UNREALEASED] 2016-
+## [UNREALEASED] 2017-01-01
+
+### Added
+
+* Upgrade to Symfony 3.2
+* Swoole Extension
+* ...
+
+## [1.1.0] - 2017-05-19
 
 ### Added
 
@@ -15,8 +23,6 @@ All notable changes to this project will be documented in this file. This projec
 * Single AppBundle project structure
 * Gulp for managing web assets
 * [PHP-PM](https://github.com/php-pm)
-* ...
-
 
 ## [1.0.0] - 2016-06-12
 
