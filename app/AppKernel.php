@@ -46,4 +46,17 @@ class AppKernel extends Kernel
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }
+
+    /**
+     * Get path to project root directory. This method overrides the default one,
+     * because that relies on finding the composer.json file in the project root
+     * folder. We're using Docker and therefore ignore the composer.json file and
+     * wouldn't get the correct project directory.
+     *
+     * @return string
+     */
+    public function getProjectDir()
+    {
+        return __DIR__.'/..';
+    }
 }

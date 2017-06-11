@@ -9,6 +9,7 @@ services:
     ports:
       - 80:80
     container_name: symfonysi
+    working_dir: /var/www/app
     networks:
       - symfonysi
 

@@ -19,8 +19,8 @@ class BlogController extends Controller
      */
     public function indexAction()
     {
-        $posts = $this->get('app.repository.post')->findAll();
-        
+        $posts = $this->get('AppBundle\Repository\PostRepository')->findAll();
+
         return $this->render(
             'blog/index.html.twig',
             ['posts' => $posts]
@@ -43,7 +43,7 @@ class BlogController extends Controller
      */
     public function showAction($year, $month, $day, $num, $slug)
     {
-        $post = $this->get('app.repository.post')->findOneBy([
+        $post = $this->get('AppBundle\Repository\PostRepository')->findOneBy([
             'year' => $year,
             'month' => $month,
             'day' => $day,
@@ -51,7 +51,7 @@ class BlogController extends Controller
             'slug' => $slug
         ]);
 
-        $sidebarPosts = $this->get('app.repository.post')->findLatest();
+        $sidebarPosts = $this->get('AppBundle\Repository\PostRepository')->findLatest();
 
         if (!$post) {
             throw $this->createNotFoundException(

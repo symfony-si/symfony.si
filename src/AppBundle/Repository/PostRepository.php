@@ -21,12 +21,12 @@ class PostRepository
     /**
      * PostRepository constructor.
      *
-     * @param string $kernelRootDir
+     * @param string $kernelProjectDir
      * @param Parser $parser
      */
-    public function __construct($kernelRootDir, Parser $parser)
+    public function __construct($kernelProjectDir, Parser $parser)
     {
-        $this->path = $kernelRootDir;
+        $this->path = $kernelProjectDir;
         $this->parser = $parser;
     }
 
@@ -38,7 +38,7 @@ class PostRepository
     public function findAll()
     {
         $finder = new Finder();
-        $finder->files()->in($this->path.'/Resources/content/blog');
+        $finder->files()->in($this->path.'/app/Resources/content/blog');
         $finder->files()->name('*.md');
         $finder->sort(function ($a, $b) { return strcmp($b->getRealpath(), $a->getRealpath()); });
 
@@ -60,7 +60,7 @@ class PostRepository
     public function findOneBy(array $params) {
         $finder = new Finder();
         $fileName = $params['year'].'-'.$params['month'].'-'.$params['day'].($params['num'] === 0 ? '' : '-'.$params['num']).'.md';
-        $finder->files()->in($this->path.'/Resources/content/blog')->name($fileName);
+        $finder->files()->in($this->path.'/app/Resources/content/blog')->name($fileName);
         $iterator = $finder->getIterator();
         $iterator->rewind();
         $file = $iterator->current();
@@ -83,7 +83,7 @@ class PostRepository
     public function findLatest($limit = 10)
     {
         $finder = new Finder();
-        $finder->files()->in($this->path.'/Resources/content/blog');
+        $finder->files()->in($this->path.'/app/Resources/content/blog');
         $finder->files()->name('*.md');
         $finder->sort(function ($a, $b) { return strcmp($b->getRealpath(), $a->getRealpath()); });
 

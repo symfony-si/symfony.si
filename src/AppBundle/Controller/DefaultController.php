@@ -23,7 +23,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $posts = $this->get('app.repository.post')->findLatest();
+        $posts = $this->get('AppBundle\Repository\PostRepository')->findLatest();
 
         $jsonData = json_decode(file_get_contents('http://knpbundles.com/newest.json'), true);
 

@@ -21,12 +21,12 @@ class PsrRepository
     /**
      * PsrRepository constructor.
      *
-     * @param $kernelRootDir
+     * @param $kernelProjectDir
      * @param Parser $parser
      */
-    public function __construct($kernelRootDir, Parser $parser)
+    public function __construct($kernelProjectDir, Parser $parser)
     {
-        $this->path = $kernelRootDir;
+        $this->path = $kernelProjectDir;
         $this->parser = $parser;
     }
 
@@ -36,7 +36,7 @@ class PsrRepository
     public function findAll()
     {
         $finder = new Finder();
-        $finder->files()->in($this->path.'/../vendor/symfony-si/fig-standards-sl/accepted');
+        $finder->files()->in($this->path.'/vendor/symfony-si/fig-standards-sl/accepted');
         $finder->files()->name('*md');
         $finder->sortByName();
 
@@ -57,7 +57,7 @@ class PsrRepository
     public function findOneBySlug($slug)
     {
         $finder = new Finder();
-        $finder->files()->in($this->path.'/../vendor/symfony-si/fig-standards-sl/accepted')->name("*.md");
+        $finder->files()->in($this->path.'/vendor/symfony-si/fig-standards-sl/accepted')->name("*.md");
         $finder->sortByName();
 
         foreach ($finder as $file) {

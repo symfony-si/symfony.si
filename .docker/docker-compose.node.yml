@@ -2,9 +2,10 @@ version: '3.2'
 
 services:
   node:
-    image: node:7.10-alpine
+    image: node:8.1-alpine
     container_name: node
     volumes:
-      - ../:/var/www/html
+      - ../:/var/www/app
+    working_dir: /var/www/app
     networks:
       - symfonysi

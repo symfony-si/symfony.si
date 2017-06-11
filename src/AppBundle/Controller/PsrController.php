@@ -24,7 +24,7 @@ class PsrController extends Controller
     public function indexAction()
     {
         return $this->render('psr/index.html.twig', [
-            'psrs' => $this->get('app.repository.psr')->findAll()
+            'psrs' => $this->get('AppBundle\Repository\PsrRepository')->findAll()
         ]);
     }
 
@@ -37,7 +37,7 @@ class PsrController extends Controller
      */
     public function showAction($slug)
     {
-        $psr = $this->get('app.repository.psr')->findOneBySlug($slug);
+        $psr = $this->get('AppBundle\Repository\PsrRepository')->findOneBySlug($slug);
 
         if (!$psr) {
             throw $this->createNotFoundException(
@@ -47,7 +47,7 @@ class PsrController extends Controller
 
         return $this->render('psr/show.html.twig', [
             'psr' => $psr,
-            'psrs' => $this->get('app.repository.psr')->findAll()
+            'psrs' => $this->get('AppBundle\Repository\PsrRepository')->findAll()
         ]);
     }
 }

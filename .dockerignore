@@ -12,6 +12,8 @@ web/config.php
 .scrutinizer.yml
 .travis.yml
 CHANGELOG.md
+composer.json
+composer.lock
 CONTRIBUTING.md
 gulpfile.js
 LICENSE
