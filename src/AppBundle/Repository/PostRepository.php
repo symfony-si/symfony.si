@@ -40,7 +40,7 @@ class PostRepository
         $finder = new Finder();
         $finder->files()->in($this->path.'/app/Resources/content/blog');
         $finder->files()->name('*.md');
-        $finder->sort(function ($a, $b) { return strcmp($b->getRealpath(), $a->getRealpath()); });
+        $finder->sort(function($a, $b) { return strcmp($b->getRealpath(), $a->getRealpath()); });
 
         $posts = [];
         foreach ($finder as $file) {
@@ -85,7 +85,7 @@ class PostRepository
         $finder = new Finder();
         $finder->files()->in($this->path.'/app/Resources/content/blog');
         $finder->files()->name('*.md');
-        $finder->sort(function ($a, $b) { return strcmp($b->getRealpath(), $a->getRealpath()); });
+        $finder->sort(function($a, $b) { return strcmp($b->getRealpath(), $a->getRealpath()); });
 
         $posts = [];
         foreach (new \LimitIterator($finder->getIterator(), 0, $limit) as $file) {
